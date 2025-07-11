@@ -26,72 +26,203 @@
         }
         /* Styling for gradient text titles */
         .gradient-text {
-            background: linear-gradient(to right, #4ade80, #3b82f6);
+            background: linear-gradient(to right, #34D399, #2DD4BF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Shadow effect for cards */
+        .card-shadow {
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.2), 0 0 30px rgba(45, 212, 191, 0.1);
+        }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="antialiased">
 
-    <div class="max-w-4xl mx-auto">
-        <!-- Header Section -->
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <!-- Main Header -->
         <header class="text-center mb-12">
-            <h1 class="text-3xl md:text-5xl font-black gradient-text">Green Productivity Specialists</h1>
-            <p class="text-lg md:text-xl text-gray-400 mt-2">Certification Process based on APO-GPS 201:2023</p>
+            <img src="https://www.apo-tokyo.org/wp-content/uploads/2022/02/APO-logo-new-1.png" alt="APO Logo" class="h-20 mx-auto mb-4" onerror="this.style.display='none'">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight gradient-text">
+                Green Productivity Specialists
+            </h1>
+            <p class="mt-4 text-lg text-gray-400">A Summary of APO-GPS 201:2023 Certification Requirements - Developed by Leonard Tiopan Panjaitan, MT, CSRA, GPS - 2025</p>
         </header>
 
-        <!-- Main Content: Certification Steps -->
-        <section>
-            <div class="space-y-8">
-                <!-- Step 1 -->
-                <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <div class="flex justify-center md:justify-end md:pr-8">
-                        <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">1</div>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
-                        <h4 class="font-bold text-lg">Application</h4>
-                        <p class="text-sm text-gray-400">Submit the application form along with required documents: CV, project reports, and training certificates.</p>
+        <!-- Section 1: Definition and Responsibilities -->
+        <section class="mb-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 card-shadow">
+                    <h2 class="text-3xl font-bold mb-4 text-green-400">What is Green Productivity (GP)?</h2>
+                    <p class="text-gray-300">
+                        Green Productivity (GP) is a strategy for enhancing productivity and environmental performance for overall socioeconomic development. It's an integrated approach to achieving sustainable economic growth.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-400">Job Responsibilities of a GP Specialist</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><span class="text-green-400 mr-3 mt-1">&#10003;</span> Define the scope of project assignments and diagnose productivity and environmental issues.</li>
+                        <li class="flex items-start"><span class="text-green-400 mr-3 mt-1">&#10003;</span> Recommend and assist in planning, executing, and sustaining appropriate GP solutions.</li>
+                        <li class="flex items-start"><span class="text-green-400 mr-3 mt-1">&#10003;</span> Conduct research, promotion, and training related to GP concepts and techniques.</li>
+                        <li class="flex items-start"><span class="text-green-400 mr-3 mt-1">&#10003;</span> Facilitate GP solutions in an ethical, productive, and transparent manner.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Framework for GP Improvement -->
+        <section class="mb-16 text-center">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">Framework for Green Productivity Improvement</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="people-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">1. Getting Started</h4>
+                        <p class="text-gray-400 text-sm">Team formation and walk-through survey for information collection.</p>
                     </div>
                 </div>
-                <!-- Step 2 -->
-                 <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0 md:col-start-1">
-                        <h4 class="font-bold text-lg">Document Review</h4>
-                        <p class="text-sm text-gray-400">The Certification Body (CB) reviews the submitted documents for completeness and compliance.</p>
-                    </div>
-                    <div class="flex justify-center md:justify-start md:pl-8 md:col-start-2">
-                         <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="map-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">2. Planning</h4>
+                        <p class="text-gray-400 text-sm">Identification of problems and causes, and setting objectives and targets.</p>
                     </div>
                 </div>
-                <!-- Step 3 -->
-                 <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <div class="flex justify-center md:justify-end md:pr-8">
-                        <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">3</div>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
-                        <h4 class="font-bold text-lg">Examination</h4>
-                        <p class="text-sm text-gray-400">Candidates must pass a written examination to test their knowledge of Green Productivity.</p>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="options-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">3. Generating & Evaluating Options</h4>
+                        <p class="text-gray-400 text-sm">Generating, screening, and prioritizing various GP solution options.</p>
                     </div>
                 </div>
-                <!-- Step 4 -->
-                 <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0 md:col-start-1">
-                        <h4 class="font-bold text-lg">Interview</h4>
-                        <p class="text-sm text-gray-400">A panel of experts interviews the candidate to assess their practical skills and experience.</p>
-                    </div>
-                    <div class="flex justify-center md:justify-start md:pl-8 md:col-start-2">
-                         <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">4</div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="construct-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">4. Implementing GP Options</h4>
+                        <p class="text-gray-400 text-sm">Formulating plans, implementing selected options, and building competence.</p>
                     </div>
                 </div>
-                <!-- Step 5 -->
-                 <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <div class="flex justify-center md:justify-end md:pr-8">
-                        <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">5</div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="analytics-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">5. Monitoring & Reviewing</h4>
+                        <p class="text-gray-400 text-sm">Monitoring and evaluating results, and conducting management reviews.</p>
                     </div>
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
-                        <h4 class="font-bold text-lg">Approval & Certification</h4>
-                        <p class="text-sm text-gray-400">Issuance of the certificate, valid for a 3-year period.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 flex items-start space-x-4">
+                    <ion-icon name="leaf-outline" class="text-3xl text-green-400"></ion-icon>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-400">6. Sustaining GP</h4>
+                        <p class="text-gray-400 text-sm">Incorporating changes into systems and identifying areas for continuous improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Levels of Certification -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">Levels of Certification</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tier 1 -->
+                <div class="bg-gray-800 p-8 rounded-2xl border-2 border-green-500 card-shadow">
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Green Productivity Specialist (Tier 1)</h3>
+                    <p class="text-gray-400 mb-4">The foundational level for professionals meeting the initial requirements.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><strong>Qualification:</strong> University degree/diploma + 5 years experience, or equivalent.</li>
+                        <li><strong>Knowledge:</strong> Completed CGPS Preparatory Course & passed written exam.</li>
+                        <li><strong>Experience:</strong> At least 1 GP assignment (min. 360 work hours) in the last 12 months.</li>
+                        <li><strong>Testimonial:</strong> At least 1 positive testimonial from a client.</li>
+                    </ul>
+                </div>
+                <!-- Tier 2 -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-teal-500">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-400">Master Green Productivity Specialist (Tier 2)</h3>
+                    <p class="text-gray-400 mb-4">The advanced level for experienced and proven specialists.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><strong>Qualification:</strong> Must be a certified GP Specialist (Tier 1).</li>
+                        <li><strong>Experience:</strong> Carried out at least 5 GP assignments (consulting, promotion, training, or research).</li>
+                        <li><strong>Testimonial:</strong> Submitted at least 5 positive testimonials from clients.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: Core Competencies -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">Core Competencies</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="font-bold text-lg text-green-400 mb-2">GP Domain Expertise</h4>
+                    <p class="text-sm text-gray-400">GP methodology, 3Rs, LCA, TQM, Eco-efficiency, Lean & Green, Green Supply Chain, etc.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="font-bold text-lg text-green-400 mb-2">Process Skills</h4>
+                    <p class="text-sm text-gray-400">Consultancy, Training, Promotion, and Applied Research related to GP.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h4 class="font-bold text-lg text-green-400 mb-2">People Skills</h4>
+                    <p class="text-sm text-gray-400">Client Relationship, Stakeholder Management, Communication, and Team Management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Certification Process -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">Certification Process Flow</h2>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block border-l-2 border-dashed border-green-500 absolute h-full top-0 left-1/2 -translate-x-1/2"></div>
+                
+                <div class="space-y-12 md:space-y-0">
+                    <!-- Step 1 -->
+                    <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                        <div class="flex justify-center md:justify-end md:pr-8">
+                            <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">1</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
+                            <h4 class="font-bold text-lg">Preparatory Course</h4>
+                            <p class="text-sm text-gray-400">Complete the CGPS Preparatory Course with at least 75% attendance.</p>
+                        </div>
+                    </div>
+                     <!-- Step 2 -->
+                    <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0 md:col-start-1 md:row-start-1">
+                            <h4 class="font-bold text-lg">Written Examination</h4>
+                            <p class="text-sm text-gray-400">Pass the CGPS written examination conducted by the Certification Body (CB).</p>
+                        </div>
+                        <div class="flex justify-center md:justify-start md:pl-8 md:col-start-2">
+                             <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+                        </div>
+                    </div>
+                     <!-- Step 3 -->
+                    <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                        <div class="flex justify-center md:justify-end md:pr-8">
+                            <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">3</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
+                            <h4 class="font-bold text-lg">Submission of Application</h4>
+                            <p class="text-sm text-gray-400">Complete the application form with all supporting documentation.</p>
+                        </div>
+                    </div>
+                     <!-- Step 4 -->
+                    <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0 md:col-start-1 md:row-start-1">
+                            <h4 class="font-bold text-lg">Face-to-face Panel Interview</h4>
+                            <p class="text-sm text-gray-400">A panel interview to assess the competency of the applicant.</p>
+                        </div>
+                        <div class="flex justify-center md:justify-start md:pl-8 md:col-start-2">
+                             <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">4</div>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                     <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                        <div class="flex justify-center md:justify-end md:pr-8">
+                            <div class="bg-green-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold">5</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mt-4 md:mt-0">
+                            <h4 class="font-bold text-lg">Approval & Certification</h4>
+                            <p class="text-sm text-gray-400">Issuance of the certificate, valid for a 3-year period.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,18 +230,22 @@
 
         <!-- Footer -->
         <footer class="text-center mt-16 pt-8 border-t border-gray-800">
-            <!-- === KODE BARU DIMULAI DI SINI === -->
+            
+            <!-- === KODE BARU DITAMBAHKAN DI SINI === -->
             <div class="mb-8">
-                <a href="https://leonardpanjaitan.github.io/index.html" class="inline-block bg-green-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors duration-300">
+                <a href="https://leonardpanjaitan.github.io/index.html" 
+                   class="inline-block bg-green-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-lg hover:shadow-green-500/50">
                     Back to the Main Page of APO GP Training
                 </a>
             </div>
-            <!-- === KODE BARU BERAKHIR DI SINI === -->
-            
+            <!-- === AKHIR DARI KODE BARU === -->
+
             <p class="text-gray-500">This infographic is based on the "APO-GPS 201:2023 Requirements for Green Productivity Specialists" document by the Asian Productivity Organization (APO). This mini app was developed by Leonard Tiopan Panjaitan, MT, CSRA, GPS - 2025</p>
         </footer>
+
     </div>
 
 </body>
 </html>
+
 
