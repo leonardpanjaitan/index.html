@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!-- Bahasa default diatur ke Bahasa Inggris, akan diubah oleh JavaScript jika ada preferensi tersimpan -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul akan diatur oleh JavaScript sesuai bahasa yang dipilih -->
+    <title>APO Green Productivity Methodology Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* bg-green-50 */
+            color: #1f2937; /* text-gray-800 */
+        }
+        .accordion-header {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: white;
+        }
+        .accordion-icon {
+            transition: transform 0.4s ease;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        /* Gaya untuk tombol bahasa yang aktif */
+        .lang-btn.active {
+            background-color: #166534; /* bg-green-800 */
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border-t-8 border-green-600">
+
+        <!-- SELURUH KONTEN ASLI ANDA DARI HEADER HINGGA MAIN TETAP DI SINI -->
+        <!-- Header dengan Pengalih Bahasa -->
+        <header class="relative text-center mb-6 sm:mb-8 md:mb-10">
+            <!-- Pengalih bahasa diposisikan di kanan atas -->
+            <div class="absolute top-0 right-0 flex space-x-1 border border-gray-300 rounded-full p-1">
+                <button id="lang-id" class="lang-btn px-3 py-1 text-xs font-semibold text-gray-600 rounded-full transition-colors duration-300">ID</button>
+                <button id="lang-en" class="lang-btn px-3 py-1 text-xs font-semibold text-gray-600 rounded-full transition-colors duration-300">EN</button>
+            </div>
+
+            <img src="https://www.apo-tokyo.org/wp-content/uploads/2021/12/apo-logo.png" alt="APO Logo" class="mx-auto mb-6 w-48" onerror="this.style.display='none'">
+
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-800 mb-2 sm:mb-4 leading-tight" data-key="title">APO Green Productivity Methodology Training</h1>
+            <p class="text-base sm:text-lg text-gray-700 leading-relaxed px-2" data-key="subtitle">This interactive application provides a concise overview of the Green Productivity (GP) Methodology, based on the APO Handbook.</p>
+            <div class="mt-4 sm:mt-6 p-3 sm:p-4 bg-green-50 rounded-lg text-xs sm:text-sm text-gray-600 border border-green-200 shadow-inner">
+                <p data-key="credit">This GP interactive application is a collaborative effort by the Regional Productivity Development Center (P3D) - Labor, Transmigration & Energy Office - Jakarta Provincial Government, in collaboration with Trisakti Sustainability Center (TSC) and the National Productivity Organization (NPO) Indonesia. Expert consultant from TSC, Leonard Tiopan Panjaitan, MT, CSRA, GPS, developed this application. &copy; Leonard 2025</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Bagian Apa itu GP? -->
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-3 sm:mb-4" data-key="what_is_gp_title">What is Green Productivity (GP)?</h2>
+                <div class="bg-green-100 p-4 sm:p-6 rounded-lg shadow-md mb-4 sm:mb-6">
+                    <p class="text-sm sm:text-base text-gray-800 leading-relaxed" data-key="what_is_gp_desc">Green Productivity is a strategy for enhancing productivity and environmental performance for overall socio-economic development. It involves applying appropriate techniques, technologies, and management systems to produce environmentally compatible goods and services. GP can be applied in manufacturing, service, agriculture, and communities.</p>
+                </div>
+
+                <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-green-600 mb-2 sm:mb-3" data-key="principles_title">Key Principles & Focus</h3>
+                <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-700 ml-4 px-2">
+                    <li data-key="triple_focus"><strong>Triple Focus:</strong> GP integrates Environment (Sustainable Development), Profitability (Factor Inputs), and Quality (Voice of Customer).</li>
+                    <li data-key="guiding_principles"><strong>Guiding Principles:</strong> Emphasizes Accountability, Polluter Pays, Precautionary Approach, People-Building, and Competitive Advantage.</li>
+                </ul>
+            </section>
+
+            <!-- Bagian Kerangka Kerja GP -->
+            <section class="mb-6 sm:mb-8">
+                <div class="mb-8">
+                    <figure>
+                        <img src="https://greenproductivityblog.wordpress.com/wp-content/uploads/2025/06/gp-improvement-framework.jpg" 
+                             alt="GP Improvement Framework Diagram" 
+                             class="w-full h-auto rounded-lg shadow-md border"
+                             onerror="this.onerror=null;this.src='https://placehold.co/1200x675/e2e8f0/166534?text=Framework+Image+Not+Found';">
+                        <figcaption class="mt-2 text-center text-sm text-gray-600 italic" data-key="framework_caption">Green Productivity (GP) Improvement Framework</figcaption>
+                    </figure>
+                </div>
+
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-4" data-key="six_steps_title">The Six Steps of GP Methodology</h2>
+                <p class="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-2" data-key="six_steps_desc">This systematic framework ensures continuous improvement and problem-solving in Green Productivity initiatives.</p>
+
+                <!-- Akordeon untuk 6 langkah -->
+                <div class="space-y-3">
+                    <!-- Langkah 1 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step1_title">Step 1: Getting Started</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step1_desc">The initial phase focuses on preparation and foundational understanding.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step1_task1"><strong>Task 1: Team Formation:</strong> Identify and form a Green Productivity Team with diverse expertise.</li>
+                                    <li data-key="step1_task2"><strong>Task 2: Walk Through Survey & Information Collection:</strong> Conduct a comprehensive site survey and gather baseline data.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step1_tools"><em>Tools: Flowcharts, Process Flow Diagrams, Eco-mapping, Benchmarking, Material Balance.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Langkah 2 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step2_title">Step 2: Planning</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step2_desc">Defining the problem and setting clear objectives for improvement.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step2_task1"><strong>Task 3: Identification of Problems & Causes:</strong> Analyze collected information to pinpoint root causes of inefficiencies.</li>
+                                    <li data-key="step2_task2"><strong>Task 4: Setting Objectives & Targets:</strong> Establish SMART objectives and performance indicators.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step2_tools"><em>Tools: Brainstorming, Fishbone Diagram, Pareto Diagram.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Langkah 3 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step3_title">Step 3: Generation & Evaluation</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step3_desc">Developing and selecting the most effective solutions.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step3_task1"><strong>Task 5: Generation of GP Options:</strong> Brainstorm and research potential GP solutions.</li>
+                                    <li data-key="step3_task2"><strong>Task 6: Screening & Prioritization of GP Options:</strong> Filter and assess options based on technical, environmental, and financial criteria.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step3_tools"><em>Tools: Cost Benefit Analysis (CBA), Failure Mode Effect Analysis (FMEA).</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Langkah 4 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step4_title">Step 4: Implementation</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step4_desc">Putting the chosen GP options into practice.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step4_task1"><strong>Task 7: Formulation of Implementation Plan:</strong> Develop a detailed plan including resources, timelines, and responsibilities.</li>
+                                    <li data-key="step4_task2"><strong>Task 8: Implementation of Selected Options:</strong> Execute the plan, often starting with trials or pilots.</li>
+                                    <li data-key="step4_task3"><strong>Task 9: Awareness Building & Training:</strong> Provide necessary training to ensure staff can operate new processes.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step4_tools"><em>Tools: Gantt Chart, Training Needs Analysis.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Langkah 5 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step5_title">Step 5: Monitoring and Review</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step5_desc">Assessing the effectiveness of implemented options and making adjustments.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step5_task1"><strong>Task 10: Monitoring & Evaluation of Results:</strong> Track performance indicators and analyze results against targets.</li>
+                                    <li data-key="step5_task2"><strong>Task 11: Management Review:</strong> Top management reviews the overall GP program's effectiveness.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step5_tools"><em>Tools: Control Charts, Spider Web Diagram, Post-implementation reports.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Langkah 6 -->
+                    <div class="border border-green-300 rounded-lg overflow-hidden">
+                        <div class="accordion-header bg-green-500 text-white font-semibold text-base sm:text-lg shadow-sm" role="button" aria-expanded="false">
+                            <h3 data-key="step6_title">Step 6: Sustaining Green Productivity</h3>
+                            <svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="p-4 sm:p-6">
+                                <p class="mb-2 text-sm sm:text-base text-gray-800" data-key="step6_desc">Ensuring long-term integration and continuous improvement of GP practices.</p>
+                                <ul class="list-disc list-inside ml-4 text-sm sm:text-base text-gray-700 space-y-1">
+                                    <li data-key="step6_task1"><strong>Task 12: Incorporate Changes into Management Systems:</strong> Formalize successful changes into standard operating procedures (e.g., ISO 14001).</li>
+                                    <li data-key="step6_task2"><strong>Task 13: Identification of New Problem Areas:</strong> Proactively identify new opportunities for improvement, cycling back through the methodology.</li>
+                                </ul>
+                                <p class="mt-3 text-xs sm:text-sm text-gray-600" data-key="step6_tools"><em>Tools: Continuous Improvement Cycle (PDCA, Kaizen), Management Systems (ISO 9001, ISO 14001).</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bagian Key Tools & Techniques (BARU) -->
+            <section>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-4" data-key="tools_title">Key Tools & Techniques</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_eco_mapping_title">Eco-mapping</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_eco_mapping_desc">Visual tool to analyze and manage environmental performance, especially for SMEs, identifying problem locations.</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_mat_en_balance_title">Material & Energy Balance</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_mat_en_balance_desc">Quantitative assessment of material/energy inputs and outputs to identify inefficiencies and waste.</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_cba_title">Cost Benefit Analysis (CBA)</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_cba_desc">Evaluates financial feasibility of GP options by comparing costs incurred with benefits accrued.</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_fmea_title">Failure Mode Effect Analysis (FMEA)</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_fmea_desc">Proactive tool to investigate possible causes of failure and incorporate preventive actions.</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_5s_7w_title">5S & 7 Wastes</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_5s_7w_desc">Management techniques focusing on workplace organization, cleanliness, standardization, and eliminating non-value-adding activities (wastes).</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h4 class="font-semibold text-base sm:text-lg text-gray-800 mb-1" data-key="tool_lca_dfe_title">Life Cycle Assessment (LCA) & DfE</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-snug" data-key="tool_lca_dfe_desc">Evaluating environmental impacts across a product's entire life cycle and incorporating environmental attributes into product design (Design for Environment).</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- === KODE BARU DITAMBAHKAN DI SINI === -->
+    <footer class="text-center my-6 py-6">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="index.html" 
+               class="inline-block bg-gray-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-gray-700 transition-colors duration-300">
+                &larr; Kembali ke Halaman Utama
+            </a>
+            <a href="certification.html" 
+               class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+                Info Sertifikasi GP Specialist &rarr;
+            </a>
+        </div>
+    </footer>
+    <!-- === AKHIR DARI KODE BARU === -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Kamus Terjemahan ---
+            const translations = {
+                en: {
+                    page_title: 'APO Green Productivity Methodology Training',
+                    title: 'APO Green Productivity Methodology Training',
+                    subtitle: 'This interactive application provides a concise overview of the Green Productivity (GP) Methodology, based on the APO Handbook.',
+                    credit: 'This GP interactive application is a collaborative effort by the Regional Productivity Development Center (P3D) - Labor, Transmigration & Energy Office - Jakarta Provincial Government, in collaboration with Trisakti Sustainability Center (TSC) and the National Productivity Organization (NPO) Indonesia. Expert consultant from TSC, Leonard Tiopan Panjaitan, MT, CSRA, GPS, developed this application. &copy; Leonard 2025',
+                    what_is_gp_title: 'What is Green Productivity (GP)?',
+                    what_is_gp_desc: 'Green Productivity is a strategy for enhancing productivity and environmental performance for overall socio-economic development. It involves applying appropriate techniques, technologies, and management systems to produce environmentally compatible goods and services. GP can be applied in manufacturing, service, agriculture, and communities.',
+                    principles_title: 'Key Principles & Focus',
+                    triple_focus: '<strong>Triple Focus:</strong> GP integrates Environment (Sustainable Development), Profitability (Factor Inputs), and Quality (Voice of Customer).',
+                    guiding_principles: '<strong>Guiding Principles:</strong> Emphasizes Accountability, Polluter Pays, Precautionary Approach, People-Building, and Competitive Advantage.',
+                    framework_caption: 'Green Productivity (GP) Improvement Framework',
+                    six_steps_title: 'The Six Steps of GP Methodology',
+                    six_steps_desc: 'This systematic framework ensures continuous improvement and problem-solving in Green Productivity initiatives.',
+                    step1_title: 'Step 1: Getting Started',
+                    step1_desc: 'The initial phase focuses on preparation and foundational understanding.',
+                    step1_task1: '<strong>Task 1: Team Formation:</strong> Identify and form a Green Productivity Team with diverse expertise.',
+                    step1_task2: '<strong>Task 2: Walk Through Survey & Information Collection:</strong> Conduct a comprehensive site survey and gather baseline data.',
+                    step1_tools: '<em>Tools: Flowcharts, Process Flow Diagrams, Eco-mapping, Benchmarking, Material Balance.</em>',
+                    step2_title: 'Step 2: Planning',
+                    step2_desc: 'Defining the problem and setting clear objectives for improvement.',
+                    step2_task1: '<strong>Task 3: Identification of Problems & Causes:</strong> Analyze collected information to pinpoint root causes of inefficiencies.',
+                    step2_task2: '<strong>Task 4: Setting Objectives & Targets:</strong> Establish SMART objectives and performance indicators.',
+                    step2_tools: '<em>Tools: Brainstorming, Fishbone Diagram, Pareto Diagram.</em>',
+                    step3_title: 'Step 3: Generation & Evaluation',
+                    step3_desc: 'Developing and selecting the most effective solutions.',
+                    step3_task1: '<strong>Task 5: Generation of GP Options:</strong> Brainstorm and research potential GP solutions.',
+                    step3_task2: '<strong>Task 6: Screening & Prioritization of GP Options:</strong> Filter and assess options based on technical, environmental, and financial criteria.',
+                    step3_tools: '<em>Tools: Cost Benefit Analysis (CBA), Failure Mode Effect Analysis (FMEA).</em>',
+                    step4_title: 'Step 4: Implementation',
+                    step4_desc: 'Putting the chosen GP options into practice.',
+                    step4_task1: '<strong>Task 7: Formulation of Implementation Plan:</strong> Develop a detailed plan including resources, timelines, and responsibilities.',
+                    step4_task2: '<strong>Task 8: Implementation of Selected Options:</strong> Execute the plan, often starting with trials or pilots.',
+                    step4_task3: '<strong>Task 9: Awareness Building & Training:</strong> Provide necessary training to ensure staff can operate new processes.',
+                    step4_tools: '<em>Tools: Gantt Chart, Training Needs Analysis.</em>',
+                    step5_title: 'Step 5: Monitoring and Review',
+                    step5_desc: 'Assessing the effectiveness of implemented options and making adjustments.',
+                    step5_task1: '<strong>Task 10: Monitoring & Evaluation of Results:</strong> Track performance indicators and analyze results against targets.',
+                    step5_task2: '<strong>Task 11: Management Review:</strong> Top management reviews the overall GP program\'s effectiveness.',
+                    step5_tools: '<em>Tools: Control Charts, Spider Web Diagram, Post-implementation reports.</em>',
+                    step6_title: 'Step 6: Sustaining Green Productivity',
+                    step6_desc: 'Ensuring long-term integration and continuous improvement of GP practices.',
+                    step6_task1: '<strong>Task 12: Incorporate Changes into Management Systems:</strong> Formalize successful changes into standard operating procedures (e.g., ISO 14001).',
+                    step6_task2: '<strong>Task 13: Identification of New Problem Areas:</strong> Proactively identify new opportunities for improvement, cycling back through the methodology.',
+                    step6_tools: '<em>Tools: Continuous Improvement Cycle (PDCA, Kaizen), Management Systems (ISO 9001, ISO 14001).</em>',
+                    tools_title: 'Key Tools & Techniques',
+                    tool_eco_mapping_title: 'Eco-mapping',
+                    tool_eco_mapping_desc: 'Visual tool to analyze and manage environmental performance, especially for SMEs, identifying problem locations.',
+                    tool_mat_en_balance_title: 'Material & Energy Balance',
+                    tool_mat_en_balance_desc: 'Quantitative assessment of material/energy inputs and outputs to identify inefficiencies and waste.',
+                    tool_cba_title: 'Cost Benefit Analysis (CBA)',
+                    tool_cba_desc: 'Evaluates financial feasibility of GP options by comparing costs incurred with benefits accrued.',
+                    tool_fmea_title: 'Failure Mode Effect Analysis (FMEA)',
+                    tool_fmea_desc: 'Proactive tool to investigate possible causes of failure and incorporate preventive actions.',
+                    tool_5s_7w_title: '5S & 7 Wastes',
+                    tool_5s_7w_desc: 'Management techniques focusing on workplace organization, cleanliness, standardization, and eliminating non-value-adding activities (wastes).',
+                    tool_lca_dfe_title: 'Life Cycle Assessment (LCA) & DfE',
+                    tool_lca_dfe_desc: "Evaluating environmental impacts across a product's entire life cycle and incorporating environmental attributes into product design (Design for Environment)."
+                },
+                id: {
+                    page_title: 'Pelatihan Metodologi Produktivitas Hijau APO',
+                    title: 'Pelatihan Metodologi Produktivitas Hijau APO',
+                    subtitle: 'Aplikasi interaktif ini memberikan gambaran ringkas tentang Metodologi Produktivitas Hijau (GP), berdasarkan Buku Panduan APO.',
+                    credit: 'Aplikasi interaktif GP ini merupakan hasil kolaborasi Pusat Pengembangan Produktivitas Daerah (P3D) Dinas Tenaga Kerja, Transmigrasi dan Energi Provinsi DKI Jakarta, bekerja sama dengan Trisakti Sustainability Center (TSC) dan National Productivity Organization (NPO) Indonesia. Aplikasi ini dikembangkan oleh konsultan ahli dari TSC, Leonard Tiopan Panjaitan, MT, CSRA, GPS. &copy; Leonard 2025',
+                    what_is_gp_title: 'Apa itu Produktivitas Hijau (GP)?',
+                    what_is_gp_desc: 'Produktivitas Hijau adalah strategi untuk meningkatkan produktivitas dan kinerja lingkungan untuk pembangunan sosial-ekonomi secara keseluruhan. Ini melibatkan penerapan teknik, teknologi, dan sistem manajemen yang sesuai untuk menghasilkan barang dan jasa yang ramah lingkungan. GP dapat diterapkan di bidang manufaktur, jasa, pertanian, dan komunitas.',
+                    principles_title: 'Prinsip & Fokus Utama',
+                    triple_focus: '<strong>Tiga Fokus:</strong> GP mengintegrasikan Lingkungan (Pembangunan Berkelanjutan), Profitabilitas (Input Faktor), dan Kualitas (Suara Pelanggan).',
+                    guiding_principles: '<strong>Prinsip Panduan:</strong> Menekankan Akuntabilitas, Pencemar Membayar, Pendekatan Pencegahan, Pembangunan Manusia, dan Keunggulan Kompetitif.',
+                    framework_caption: 'Kerangka Kerja Peningkatan Produktivitas Hijau (GP)',
+                    six_steps_title: 'Enam Langkah Metodologi GP',
+                    six_steps_desc: 'Kerangka kerja sistematis ini memastikan perbaikan berkelanjutan dan pemecahan masalah dalam inisiatif Produktivitas Hijau.',
+                    step1_title: 'Langkah 1: Memulai',
+                    step1_desc: 'Fase awal ini berfokus pada persiapan dan pemahaman dasar.',
+                    step1_task1: '<strong>Tugas 1: Pembentukan Tim:</strong> Mengidentifikasi dan membentuk Tim Produktivitas Hijau dengan keahlian yang beragam.',
+                    step1_task2: '<strong>Tugas 2: Survei Lapangan & Pengumpulan Informasi:</strong> Melakukan survei lokasi yang komprehensif dan mengumpulkan data dasar.',
+                    step1_tools: '<em>Alat: Diagram Alir, Diagram Proses, Eco-mapping, Benchmarking, Neraca Material.</em>',
+                    step2_title: 'Langkah 2: Perencanaan',
+                    step2_desc: 'Mendefinisikan masalah dan menetapkan tujuan yang jelas untuk perbaikan.',
+                    step2_task1: '<strong>Tugas 3: Identifikasi Masalah & Penyebab:</strong> Menganalisis informasi yang terkumpul untuk menemukan akar penyebab inefisiensi.',
+                    step2_task2: '<strong>Tugas 4: Penetapan Tujuan & Target:</strong> Menetapkan tujuan SMART dan indikator kinerja.',
+                    step2_tools: '<em>Alat: Brainstorming, Diagram Tulang Ikan, Diagram Pareto.</em>',
+                    step3_title: 'Langkah 3: Menghasilkan & Evaluasi',
+                    step3_desc: 'Mengembangkan dan memilih solusi yang paling efektif.',
+                    step3_task1: '<strong>Tugas 5: Menghasilkan Opsi GP:</strong> Melakukan brainstorming dan riset potensi solusi GP.',
+                    step3_task2: '<strong>Tugas 6: Penyaringan & Prioritas Opsi GP:</strong> Menyaring dan menilai opsi berdasarkan kriteria teknis, lingkungan, dan finansial.',
+                    step3_tools: '<em>Alat: Analisis Biaya-Manfaat (CBA), Analisis Efek Mode Kegagalan (FMEA).</em>',
+                    step4_title: 'Langkah 4: Implementasi',
+                    step4_desc: 'Menerapkan opsi GP yang telah dipilih ke dalam praktik.',
+                    step4_task1: '<strong>Tugas 7: Perumusan Rencana Implementasi:</strong> Mengembangkan rencana detail termasuk sumber daya, jadwal, dan tanggung jawab.',
+                    step4_task2: '<strong>Tugas 8: Implementasi Opsi Terpilih:</strong> Melaksanakan rencana, seringkali dimulai dengan uji coba atau pilot.',
+                    step4_task3: '<strong>Tugas 9: Peningkatan Kesadaran & Pelatihan:</strong> Memberikan pelatihan yang diperlukan untuk memastikan staf dapat mengoperasikan proses baru.',
+                    step4_tools: '<em>Alat: Bagan Gantt, Analisis Kebutuhan Pelatihan.</em>',
+                    step5_title: 'Langkah 5: Pemantauan dan Tinjauan',
+                    step5_desc: 'Menilai efektivitas opsi yang diimplementasikan dan melakukan penyesuaian.',
+                    step5_task1: '<strong>Tugas 10: Pemantauan & Evaluasi Hasil:</strong> Melacak indikator kinerja dan menganalisis hasil terhadap target.',
+                    step5_task2: '<strong>Tugas 11: Tinjauan Manajemen:</strong> Manajemen puncak meninjau efektivitas program GP secara keseluruhan.',
+                    step5_tools: '<em>Alat: Bagan Kendali, Diagram Jaring Laba-laba, Laporan pasca-implementasi.</em>',
+                    step6_title: 'Langkah 6: Menjaga Keberlanjutan GP',
+                    step6_desc: 'Memastikan integrasi jangka panjang dan perbaikan berkelanjutan dari praktik GP.',
+                    step6_task1: '<strong>Tugas 12: Menggabungkan Perubahan ke Sistem Manajemen:</strong> Memformalkan perubahan yang berhasil ke dalam prosedur operasi standar (misalnya, ISO 14001).',
+                    step6_task2: '<strong>Tugas 13: Identifikasi Area Masalah Baru:</strong> Secara proaktif mengidentifikasi peluang baru untuk perbaikan, kembali ke siklus metodologi.',
+                    step6_tools: '<em>Alat: Siklus Perbaikan Berkelanjutan (PDCA, Kaizen), Sistem Manajemen (ISO 9001, ISO 14001).</em>',
+                    tools_title: 'Alat & Teknik Utama',
+                    tool_eco_mapping_title: 'Eco-mapping',
+                    tool_eco_mapping_desc: 'Alat visual untuk menganalisis dan mengelola kinerja lingkungan, terutama untuk UKM, dalam mengidentifikasi lokasi masalah.',
+                    tool_mat_en_balance_title: 'Neraca Material & Energi',
+                    tool_mat_en_balance_desc: 'Penilaian kuantitatif input dan output material/energi untuk mengidentifikasi inefisiensi dan limbah.',
+                    tool_cba_title: 'Analisis Biaya-Manfaat (CBA)',
+                    tool_cba_desc: 'Mengevaluasi kelayakan finansial dari opsi GP dengan membandingkan biaya yang dikeluarkan dengan manfaat yang diperoleh.',
+                    tool_fmea_title: 'Analisis Efek Mode Kegagalan (FMEA)',
+                    tool_fmea_desc: 'Alat proaktif untuk menyelidiki kemungkinan penyebab kegagalan dan menerapkan tindakan pencegahan.',
+                    tool_5s_7w_title: '5S & 7 Pemborosan',
+                    tool_5s_7w_desc: 'Teknik manajemen yang berfokus pada organisasi tempat kerja, kebersihan, standardisasi, dan menghilangkan aktivitas yang tidak bernilai tambah (pemborosan).',
+                    tool_lca_dfe_title: 'Penilaian Siklus Hidup (LCA) & DfE',
+                    tool_lca_dfe_desc: "Mengevaluasi dampak lingkungan di seluruh siklus hidup produk dan memasukkan atribut lingkungan ke dalam desain produk (Desain untuk Lingkungan)."
+                }
+            };
+
+            // --- Logika Akordeon ---
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = header.classList.contains('active');
+                    // Tutup semua akordeon lain
+                    document.querySelectorAll('.accordion-header.active').forEach(activeHeader => {
+                        if (activeHeader !== header) {
+                            activeHeader.classList.remove('active');
+                            activeHeader.setAttribute('aria-expanded', 'false');
+                            activeHeader.nextElementSibling.style.maxHeight = null;
+                        }
+                    });
+                    // Buka/tutup akordeon yang diklik
+                    if (isActive) {
+                        header.classList.remove('active');
+                        header.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                    } else {
+                        header.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            // --- Logika Bilingual ---
+            const langButtons = {
+                en: document.getElementById('lang-en'),
+                id: document.getElementById('lang-id')
+            };
+            const translatableElements = document.querySelectorAll('[data-key]');
+
+            const setLanguage = (lang) => {
+                const langPack = translations[lang] || translations.en;
+
+                // Perbarui konten teks untuk semua elemen
+                translatableElements.forEach(el => {
+                    const key = el.dataset.key;
+                    if (langPack[key]) {
+                        el.innerHTML = langPack[key];
+                    }
+                });
+
+                // Perbarui judul halaman
+                document.title = langPack.page_title;
+
+                // Perbarui atribut lang pada HTML
+                document.documentElement.lang = lang;
+
+                // Perbarui gaya tombol
+                langButtons.en.classList.toggle('active', lang === 'en');
+                langButtons.id.classList.toggle('active', lang === 'id');
+
+                // Simpan preferensi pengguna
+                try {
+                    localStorage.setItem('preferredLanguage', lang);
+                } catch (e) {
+                    console.error("Could not save language preference to localStorage.", e);
+                }
+            };
+
+            // Tambahkan event listener pada tombol
+            langButtons.en.addEventListener('click', () => setLanguage('en'));
+            langButtons.id.addEventListener('click', () => setLanguage('id'));
+
+            // Atur bahasa awal berdasarkan preferensi tersimpan atau default ke Bahasa Inggris
+            let preferredLanguage = 'en';
+            try {
+                preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            } catch (e) {
+                console.error("Could not read language preference from localStorage.", e);
+            }
+            setLanguage(preferredLanguage);
+        });
+    </script>
+</body>
+</html>
