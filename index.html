@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Training of APO Green Productivity </title>
+    <title>Welcome to the Training of APO Green Productivity</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,55 +22,63 @@
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body class="flex items-center justify-center min-h-screen p-6">
 
-    <div class="max-w-2xl w-full mx-auto bg-white rounded-xl shadow-2xl p-8 sm:p-12 border-t-8 border-green-600 text-center">
+    <!-- Container diperlebar untuk tampilan desktop yang lebih baik (max-w-4xl) -->
+    <div class="max-w-4xl w-full mx-auto bg-white rounded-2xl shadow-2xl p-10 sm:p-16 border-t-8 border-green-600 text-center">
         
         <header class="mb-8">
             <img src="https://www.apo-tokyo.org/wp-content/uploads/2021/12/apo-logo.png" 
                  alt="Logo APO" 
-                 class="mx-auto mb-6 w-48 h-auto"
+                 class="mx-auto mb-6 w-56 h-auto"
                  onerror="this.style.display='none'">
         </header>
 
         <main>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-green-800 mb-4 leading-tight">
-                Welcome to the Training of Green Productivity (GP)
+            <!-- Ukuran font diperbesar untuk desktop -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-green-800 mb-4 leading-tight">
+                Welcome to the Green Productivity & National Productivity Training Hub
             </h1>
-            <p class="text-lg sm:text-xl text-gray-600 mb-10">
-                Based on Asian Productivity Organization (APO) Methodology
+            <p class="text-xl text-gray-600 mb-12">
+                An Interactive Learning & Information Center
             </p>
 
-            <!-- Menampung tombol dalam satu div untuk tata letak yang lebih baik -->
-            <div class="flex flex-col items-center space-y-4">
-                <!-- Tombol yang mengarahkan ke halaman pelatihan -->
+            <!-- Tombol-tombol disusun dalam grid untuk tata letak yang rapi -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <!-- Tombol Pelatihan GP -->
                 <a href="training.html" 
-                   class="cta-button inline-block w-full max-w-xs bg-green-600 text-white font-bold text-lg py-3 px-10 rounded-lg shadow-lg hover:bg-green-700">
-                    Start the Training
+                   class="cta-button flex flex-col items-center justify-center p-6 bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-700">
+                    <span class="font-bold text-xl">Start the GP Training</span>
+                    <span class="text-sm mt-1">APO Methodology</span>
                 </a>
 
-                <!-- Tombol yang mengarahkan ke halaman dasbor -->
+                <!-- Tombol Dasbor GP -->
                 <a href="dashboard.html" 
-                   class="cta-button inline-block w-full max-w-xs bg-blue-600 text-white font-bold text-lg py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700">
-                    View Interactive Dashboard
+                   class="cta-button flex flex-col items-center justify-center p-6 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700">
+                    <span class="font-bold text-xl">View GP Dashboard</span>
+                    <span class="text-sm mt-1">Interactive Data</span>
                 </a>
+
+                <!-- === TOMBOL BARU DITAMBAHKAN DI SINI (melintasi 2 kolom di desktop) === -->
+                <a href="roadmap.html" 
+                   class="cta-button md:col-span-2 flex flex-col items-center justify-center p-6 bg-gray-700 text-white rounded-lg shadow-lg hover:bg-gray-800">
+                    <span class="font-bold text-xl">Roadmap Balai Latihan Kerja (BLK) Produktivitas</span>
+                    <span class="text-sm mt-1">E-Learning Productivity Study</span>
+                </a>
+                <!-- === AKHIR DARI TOMBOL BARU === -->
             </div>
         </main>
 
-        <footer class="mt-12 pt-6 border-t border-gray-200">
+        <footer class="mt-16 pt-8 border-t border-gray-200">
             <p class="text-sm text-gray-500">
                 Developed by Leonard Tiopan Panjaitan, MT, CSRA, GPS &copy; 2025
             </p>
-
-            <!-- === SCRIPT BARU DITAMBAHKAN DI SINI === -->
             <p class="text-sm text-gray-500 mt-4">
                 Visit the Green & Productivity Information Hub at 
                 <a href="https://greenproductivityblog.wordpress.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
                     https://greenproductivityblog.wordpress.com
                 </a>.
             </p>
-            <!-- === AKHIR DARI SCRIPT BARU === -->
-
         </footer>
 
     </div>
