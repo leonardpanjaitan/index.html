@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title">Dasbor Interaktif - Pelatihan Green Productivity Jakarta</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inter Font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for body, adjusting font and colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F8FF; /* AliceBlue - Light and bright base */
+            color: #2F4F4F; /* DarkSlateGray - Deep contrast for text */
+            font-size: 0.75rem; /* Smallest base font size */
+            line-height: 1.5; /* Line spacing for readability */
+        }
+        /* Font size adjustments for heading elements */
+        h1 { font-size: 1.5rem; } /* Scale down h1 */
+        h2 { font-size: 1.25rem; } /* Scale down h2 */
+        h3 { font-size: 1rem; } /* Scale down h3 */
+        p { font-size: 0.75rem; } /* Scale down paragraphs */
+        .text-lg { font-size: 0.875rem; } /* Adjust text-lg */
+        .text-xl { font-size: 1rem; } /* Adjust text-xl */
+        .text-2xl { font-size: 1.125rem; } /* Adjust text-2xl */
+        .text-3xl { font-size: 1.25rem; } /* Adjust text-3xl */
+        .text-4xl { font-size: 1.5rem; } /* Adjust text-4xl */
+        .text-5xl { font-size: 1.75rem; } /* Adjust text-5xl */
+
+        /* Responsive chart container */
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 200px; /* Smaller height for blog */
+            width: 100%;
+            max-width: 400px; /* Smaller max width */
+            max-height: 250px; /* Smaller max height */
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 250px; /* Slightly larger on tablet/desktop */
+                max-height: 300px;
+            }
+        }
+        /* Navigation link styles */
+        .nav-link {
+            transition: color 0.3s;
+            font-size: 0.7rem; /* Smaller navigation font size */
+        }
+        .nav-link:hover {
+            color: #4682B4; /* SteelBlue - Bright accent */
+        }
+        /* KPI card styles */
+        .kpi-card {
+            background-color: #FFFFFF;
+            border-radius: 0.5rem; /* More rounded corners */
+            padding: 1rem; /* Smaller padding */
+            text-align: center;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 3px solid #87CEFA; /* Thinner border, SkyBlue */
+        }
+        .kpi-card:hover {
+            transform: translateY(-3px); /* Softer hover effect */
+            box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .kpi-number {
+            font-size: 1.8rem; /* Smaller KPI number size */
+            font-weight: 900;
+            line-height: 1;
+            color: #006400; /* DarkGreen - Strong contrast */
+        }
+        .kpi-label {
+            margin-top: 0.25rem; /* Smaller margin */
+            font-size: 0.75rem; /* Smaller KPI label size */
+            color: #4682B4; /* SteelBlue - Bright accent */
+            font-weight: 600;
+        }
+        /* Flowchart step styles */
+        .flowchart-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 0.25rem; /* Smaller padding */
+            flex: 1;
+        }
+        .flowchart-step-content {
+            background-color: #E0FFFF; /* LightCyan - Brighter */
+            border: 1px solid #87CEFA; /* SkyBlue - Brighter border */
+            color: #2F4F4F; /* DarkSlateGray - For text */
+            border-radius: 0.3rem; /* Smaller corners */
+            padding: 0.75rem; /* Smaller padding */
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); /* Softer shadow */
+            transition: background-color 0.3s;
+            font-size: 0.7rem; /* Font size in flowchart */
+        }
+        .flowchart-step:hover .flowchart-step-content {
+            background-color: #ADD8E6; /* LightBlue on hover */
+        }
+        .flowchart-arrow {
+            font-size: 1.8rem;
+            color: #4682B4;
+            margin: 0.3rem 0;
+            transform: rotate(90deg);
+            flex-shrink: 0;
+            text-align: center;
+        }
+        /* Collapsible header styles */
+        .collapsible-header {
+            cursor: pointer;
+            padding: 0.75rem; /* Smaller padding */
+            background-color: #ADD8E6; /* LightBlue - Brighter */
+            border-radius: 0.3rem; /* Smaller corners */
+            margin-bottom: 0.3rem; /* Smaller margin */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2F4F4F; /* DarkSlateGray - For text */
+            transition: background-color 0.3s;
+            font-size: 0.75rem; /* Header font size */
+        }
+        .collapsible-header:hover {
+            background-color: #87CEFA; /* SkyBlue on hover */
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out; /* Faster transition */
+            padding-left: 0.75rem; /* Smaller padding */
+            background-color: #FFFFFF;
+            border-radius: 0.3rem; /* Smaller corners */
+            margin-bottom: 0.3rem; /* Smaller margin */
+            font-size: 0.7rem; /* Content font size */
+        }
+        .collapsible-content.open {
+            max-height: 600px; /* Adjusted max height */
+            padding: 0.75rem; /* Padding when open */
+        }
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+        }
+        .collapsible-icon.rotate {
+            transform: rotate(90deg);
+        }
+        /* Adjustments for main element margins and padding */
+        .container {
+            padding: 0.5rem; /* Smaller main container padding */
+        }
+        .py-12 { padding-top: 1.5rem; padding-bottom: 1.5rem; } /* Adjust vertical section padding */
+        .py-20 { padding-top: 2rem; padding-bottom: 2rem; }
+        .mb-12 { margin-bottom: 1rem; } /* Adjust margin-bottom */
+
+        /* Language switcher styles */
+        .lang-btn.active {
+            background-color: #4682B4; /* SteelBlue */
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header with logo and language switcher -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-3 py-2 flex justify-between items-center">
+            <div class="text-xl font-bold text-[#2F4F4F] flex items-center">
+                <img src="https://p3d-disnakertrans.jakarta.go.id/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-24-at-16.00.53.jpeg" alt="Logo PPPD" class="h-10 w-auto mr-2">
+                <span data-key="header_title">Dasbor</span> <span class="text-[#4682B4]">GP</span>
+            </div>
+            <div class="flex items-center">
+                <ul class="hidden md:flex space-x-4 font-semibold mr-4">
+                    <li><a href="#konsep" class="nav-link" data-key="nav_concept">Konsep</a></li>
+                    <li><a href="#metodologi" class="nav-link" data-key="nav_methodology">Metodologi</a></li>
+                    <li><a href="#kompetensi" class="nav-link" data-key="nav_competency">Kompetensi</a></li>
+                    <li><a href="#dampak" class="nav-link" data-key="nav_impact">Studi Kasus</a></li>
+                    <li><a href="#pendorong" class="nav-link" data-key="nav_drivers">Pendorong</a></li>
+                    <li><a href="#sertifikasi" class="nav-link" data-key="nav_certification">Sertifikasi</a></li>
+                </ul>
+                <div class="flex space-x-1 border border-gray-300 rounded-full p-1">
+                    <button id="lang-id" class="lang-btn px-3 py-1 text-xs font-semibold text-gray-600 rounded-full transition-colors duration-300">ID</button>
+                    <button id="lang-en" class="lang-btn px-3 py-1 text-xs font-semibold text-gray-600 rounded-full transition-colors duration-300">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-2">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-6">
+            <h1 class="text-2xl font-black text-[#2F4F4F] leading-tight max-w-full mx-auto" data-key="hero_title">Pelatihan Green Productivity Specialist Jakarta</h1>
+            <p class="text-sm mt-2 font-normal text-[#4682B4] max-w-full mx-auto" data-key="hero_subtitle">Transformasi Industri Menuju Keberlanjutan: Dasbor Interaktif untuk Menjadi Spesialis GP Bersertifikat APO. Pelatihan ini diselenggarakan oleh Pusat Pengembangan Produktivitas Daerah (P3D) Dinas Tenaga Kerja, Transmigrasi dan Energi, Pemerintah Provinsi Jakarta bekerjasama dengan Trisakti Sustainability Center (TSC) dan National Productivity Organization (NPO) - Indonesia.</p>
+        </section>
+        
+        <!-- GP Concept Section -->
+        <section id="konsep" class="py-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="concept_title">Mendalami Konsep Green Productivity (GP)</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="concept_desc">Green Productivity (GP) adalah strategi holistik yang dikembangkan oleh Asian Productivity Organization (APO) untuk secara simultan meningkatkan produktivitas dan kinerja lingkungan guna mencapai pembangunan sosio-ekonomi secara keseluruhan. Jelajahi pilar dan manfaatnya.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="kpi-card">
+                        <div class="kpi-number">50%</div>
+                        <div class="kpi-label" data-key="kpi1_label">Potensi Pengurangan Limbah</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">30%</div>
+                        <div class="kpi-label" data-key="kpi2_label">Peningkatan Efisiensi Sumber Daya</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">20%</div>
+                        <div class="kpi-label" data-key="kpi3_label">Peningkatan Profitabilitas</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">100%</div>
+                        <div class="kpi-label" data-key="kpi4_label">Peningkatan Kualitas Hidup</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-center text-[#2F4F4F] mb-2" data-key="chart1_title">Tiga Pilar Keseimbangan GP</h3>
+                    <p class="text-[#4682B4] mb-2 text-center text-xs" data-key="chart1_desc">GP memiliki fokus tiga dimensi: Lingkungan, Profitabilitas, dan Kualitas. Diagram ini menunjukkan keseimbangan antar pilar tersebut.</p>
+                    <div class="chart-container">
+                        <canvas id="gpPillarsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="metodologi" class="py-6 bg-[#E0FFFF] rounded-lg mt-6">
+            <div class="text-center mb-6 px-2">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="method_title">Metodologi "Success in Six" APO & 13 Tugas</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="method_desc">Kerangka kerja sistematis ini memandu implementasi proyek Green Productivity. Arahkan kursor pada setiap langkah untuk melihat tugas-tugas spesifik yang terlibat.</p>
+            </div>
+            <div class="flex flex-col justify-center items-stretch gap-1">
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step1_title">1. Getting Started</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step1_desc">Pembentukan tim (T1), Survei & pengumpulan informasi (T2).</p>
+                    </div>
+                </div>
+                <div class="flowchart-arrow">&#10140;</div>
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step2_title">2. Planning</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step2_desc">Identifikasi masalah (T3), Penetapan tujuan & target (T4).</p>
+                    </div>
+                </div>
+                <div class="flowchart-arrow">&#10140;</div>
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step3_title">3. Generating, Evaluating, & Prioritizing GP Options</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step3_desc">Generasi opsi (T5), Penyaringan & prioritisasi (T6), Formulasi rencana (T7).</p>
+                    </div>
+                </div>
+                <div class="flowchart-arrow">&#10140;</div>
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step4_title">4. Implementing GP Options</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step4_desc">Implementasi opsi terpilih (T8).</p>
+                    </div>
+                </div>
+                <div class="flowchart-arrow">&#10140;</div>
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step5_title">5. Monitoring and Reviewing</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step5_desc">Monitoring & evaluasi hasil (T9), Pelatihan (T10), Tinjauan manajemen (T11).</p>
+                    </div>
+                </div>
+                <div class="flowchart-arrow">&#10140;</div>
+                <div class="flowchart-step group">
+                    <div class="flowchart-step-content">
+                        <span class="text-sm font-bold text-[#4682B4]" data-key="step6_title">6. Sustaining GP</span>
+                        <p class="text-xs mt-0.5 text-[#2F4F4F]" data-key="step6_desc">Identifikasi area masalah baru (T12), Mengintegrasikan perubahan ke sistem manajemen organisasi (T13).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competency Section -->
+        <section id="kompetensi" class="py-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="competency_title">13 Unit Kompetensi Green Productivity Specialist (GPS) APO 201:2023</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="competency_desc">Kurikulum komprehensif ini dirancang untuk membangun keahlian Anda. Klik pada setiap unit kompetensi untuk detail lebih lanjut.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-2 text-center" data-key="chart2_title">Fokus Area Kompetensi GPS</h3>
+                    <p class="text-[#4682B4] mb-2 text-center text-xs" data-key="chart2_desc">Kompetensi GPS mencakup berbagai bidang penting. Diagram radar ini menyoroti distribusi fokus keahlian.</p>
+                    <div class="chart-container">
+                        <canvas id="competencyRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-2 text-center" data-key="chart3_title">Alat & Teknik GP Kunci</h3>
+                    <p class="text-[#4682B4] mb-2 text-center text-xs" data-key="chart3_desc">Berbagai alat dan teknik adalah inti dari implementasi GP. Grafik ini membandingkan efektivitas beberapa alat utama.</p>
+                    <div class="chart-container">
+                         <canvas id="gpToolsEffectivenessChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 bg-white rounded-lg shadow-md p-3">
+                <h3 class="text-base font-bold text-[#2F4F4F] mb-2" data-key="competency_details_title">Detail Unit Kompetensi</h3>
+                <div id="competency-details">
+                    <!-- Units will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="dampak" class="py-6 bg-[#E0FFFF] rounded-lg mt-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="impact_title">Dampak Nyata: Studi Kasus di Indonesia</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="impact_desc">Implementasi Green Productivity telah terbukti memberikan hasil nyata bagi perusahaan di Indonesia.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-1" data-key="case1_title">PT Kimia Farma Tbk: Efisiensi Energi & Emisi</h3>
+                    <p class="text-[#4682B4] mb-2 text-xs" data-key="case1_desc">Studi kasus ini menunjukkan bagaimana PT Kimia Farma berhasil mengurangi konsumsi energi dan jejak karbon secara signifikan.</p>
+                    <div class="chart-container">
+                        <canvas id="kimiaFarmaChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-1" data-key="case2_title">UMKM Sabun Usklin: Optimalisasi Produksi</h3>
+                    <p class="text-[#4682B4] mb-2 text-xs" data-key="case2_desc">Proyek GP pada UMKM pembuatan sabun Usklin di Jakarta fokus pada optimalisasi penggunaan bahan baku dan pengurangan limbah produksi.</p>
+                    <div class="chart-container">
+                        <canvas id="usklinChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-3 md:col-span-2">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-1" data-key="case3_title">Studi Kasus Lain: Industri & Komunitas</h3>
+                    <ul class="list-disc list-inside text-[#4682B4] text-xs leading-relaxed" data-key="case3_list">
+                        <!-- Content will be populated by JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Driving Forces Section -->
+        <section id="pendorong" class="py-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="drivers_title">Kekuatan Pendorong Adopsi Green Productivity</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="drivers_desc">Adopsi GP didorong oleh berbagai faktor, baik dari dalam maupun luar organisasi. Memahami kekuatan ini sangat penting.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-3">
+                <h3 class="text-base font-bold text-[#2F4F4F] mb-2 text-center" data-key="chart4_title">Analisis Pendorong Internal vs. Eksternal</h3>
+                <p class="text-[#4682B4] mb-2 text-center text-xs" data-key="chart4_desc">Ukuran gelembung merepresentasikan tingkat pengaruh setiap pendorong. Arahkan kursor pada gelembung untuk melihat detailnya.</p>
+                <div class="chart-container h-64 md:h-80">
+                    <canvas id="drivingForcesChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Future Prospects & Recommendations Section -->
+        <section id="prospek" class="py-6 bg-[#E0FFFF] rounded-lg mt-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="prospects_title">Prospek Masa Depan & Rekomendasi GP</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="prospects_desc">Green Productivity adalah kunci untuk mengatasi tantangan keberlanjutan global dan regional.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-2" data-key="findings_title">Ringkasan Temuan Kunci</h3>
+                    <ul class="list-disc list-inside text-[#4682B4] text-xs leading-relaxed" data-key="findings_list">
+                        <!-- Content will be populated by JS -->
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-3">
+                    <h3 class="text-base font-bold text-[#2F4F4F] mb-2" data-key="recommendations_title">Rekomendasi Strategis</h3>
+                    <ul class="list-disc list-inside text-[#4682B4] text-xs leading-relaxed" data-key="recommendations_list">
+                        <!-- Content will be populated by JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Requirements Section -->
+        <section id="sertifikasi" class="py-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-bold text-[#2F4F4F]" data-key="certification_title">Persyaratan Sertifikasi Green Productivity Specialist (GPS)</h2>
+                <p class="mt-1 text-sm text-[#4682B4] max-w-full mx-auto" data-key="certification_desc">Untuk mendapatkan gelar "Green Productivity Specialist" (GPS), peserta harus lulus ujian dan menyusun Laporan Proyek Perbaikan.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-3">
+                <h3 class="text-base font-bold text-[#2F4F4F] mb-2" data-key="report_structure_title">Struktur Laporan Proyek GP (APO Standard)</h3>
+                <div id="report-structure-details">
+                    <!-- Report structure items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#2F4F4F] text-white mt-8">
+        <div class="container mx-auto py-4 px-3 text-center">
+            <p class="font-bold text-base text-[#F0F8FF]" data-key="footer_cta">Siap Memimpin Perubahan Hijau?</p>
+            <p class="mt-1 text-[#ADD8E6] text-sm" data-key="footer_desc">Dengan menjadi Green Productivity Specialist, Anda akan menjadi kunci dalam membentuk masa depan yang lebih efisien dan berkelanjutan. Dashboard ini dibuat oleh Leonard Tiopan Panjaitan, MT, CSRA, GPS, Seorang Tenaga Ahli TSC yang berkolaborasi dengan Pusat Pengembangan Produktivitas Daerah (P3D) Dinas Tenaga Kerja, Transmigrasi dan Energi, Pemerintah Propinsi Jakarta.</p>
+            
+            <div class="mt-6">
+                <a href="index.html" 
+                   class="inline-block bg-sky-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-sky-600 transition-colors duration-300">
+                    &larr; Back to the Main Page
+                </a>
+            </div>
+
+            <p class="mt-3 text-xs text-[#87CEFA]" data-key="footer_copyright">&copy; 2025 Dasbor Interaktif Pelatihan GP Jakarta. Dibuat sebagai materi pelatihan.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Translation Dictionary ---
+        const translations = {
+            en: {
+                page_title: "Interactive Dashboard - Green Productivity Training Jakarta",
+                header_title: "GP Dashboard",
+                nav_concept: "Concept", nav_methodology: "Methodology", nav_competency: "Competency", nav_impact: "Case Studies", nav_drivers: "Drivers", nav_certification: "Certification",
+                hero_title: "Jakarta Green Productivity Specialist Training",
+                hero_subtitle: "Industrial Transformation Towards Sustainability: An Interactive Dashboard to Become an APO Certified GP Specialist. This training is organized by the Regional Productivity Development Center (P3D) of the Jakarta Provincial Government's Manpower, Transmigration, and Energy Office in collaboration with Trisakti Sustainability Center (TSC) and the National Productivity Organization (NPO) - Indonesia.",
+                concept_title: "Exploring the Green Productivity (GP) Concept",
+                concept_desc: "Green Productivity (GP) is a holistic strategy developed by the Asian Productivity Organization (APO) to simultaneously enhance productivity and environmental performance to achieve overall socio-economic development. Explore its pillars and benefits.",
+                kpi1_label: "Potential Waste Reduction", kpi2_label: "Increase in Resource Efficiency", kpi3_label: "Increase in Profitability", kpi4_label: "Improvement in Quality of Life",
+                chart1_title: "The Three Pillars of GP Balance", chart1_desc: "GP has a three-dimensional focus: Environment, Profitability, and Quality. This diagram shows the balance between these pillars.",
+                method_title: "APO's \"Success in Six\" Methodology & 13 Tasks", method_desc: "This systematic framework guides the implementation of Green Productivity projects. Hover over each step to see the specific tasks involved.",
+                step1_title: "1. Getting Started", step1_desc: "Team formation (T1), Survey & information collection (T2).",
+                step2_title: "2. Planning", step2_desc: "Problem identification (T3), Setting objectives & targets (T4).",
+                step3_title: "3. Generating, Evaluating, & Prioritizing GP Options", step3_desc: "Option generation (T5), Screening & prioritization (T6), Plan formulation (T7).",
+                step4_title: "4. Implementing GP Options", step4_desc: "Implementation of selected options (T8).",
+                step5_title: "5. Monitoring and Reviewing", step5_desc: "Monitoring & evaluation of results (T9), Training (T10), Management review (T11).",
+                step6_title: "6. Sustaining GP", step6_desc: "Identification of new problem areas (T12), Integrating changes into the organization's management system (T13).",
+                competency_title: "13 Competency Units of Green Productivity Specialist (GPS) APO 201:2023", competency_desc: "This comprehensive curriculum is designed to build your expertise. Click on each competency unit for more details.",
+                chart2_title: "GPS Competency Focus Areas", chart2_desc: "GPS competencies cover various critical areas. This radar chart highlights the distribution of expertise focus.",
+                chart3_title: "Key GP Tools & Techniques", chart3_desc: "Various tools and techniques are at the core of GP implementation. This chart compares the effectiveness of several key tools.",
+                competency_details_title: "Competency Unit Details",
+                units: [
+                    { title: "1. APO-GPS CSTD-001: Promote the Concept of GP", desc: "This unit equips participants with an understanding of sustainable development and Green Productivity (GP), including concepts of productivity, ecology, the relationship between productivity-environment-socio-economics, GP guiding principles, driving forces, benefits, and how to communicate them to the public.", tools: "Related Tools/Techniques: Brainstorming, Relationship Analysis." },
+                    { title: "2. APO-GPS CSTD-002: Implement GP Methodology and Its Tools", desc: "Focuses on applying GP methodology and tools to diagnose productivity problems and develop solutions.", tools: "Related Tools/Techniques: Flowchart, Eco-mapping, Material Balance, Fishbone Diagram, Pareto Diagram, Cost Benefit Analysis, FMEA." },
+                    { title: "3. APO-GPS CSTD-003: Implement Techniques for GP", desc: "This unit involves implementing various techniques to improve productivity and environmental performance.", tools: "Related Tools/Techniques: 5S Techniques, 7 Wastes, 3Rs (Recycle, Reuse, Recovery), Energy Conservation, Design for Environment." },
+                    { title: "4. APO-GPS CSTD-004: Prepare a Plan for a GP Implementation Project", desc: "Covers the preparation of a comprehensive plan for GP project implementation.", tools: "Related Tools/Techniques: SMART Objectives, FMEA, Gantt Chart (Conceptual)." },
+                    { title: "5. APO-GPS CSTD-005: Facilitate GP Project Implementation", desc: "Focuses on facilitating the implementation of a GP project, ensuring effective execution.", tools: "Related Tools/Techniques: Regular Meetings, Stakeholder Analysis, Problem Solving Techniques." },
+                    { title: "6. APO-GPS CSTD-006: Facilitate Managing GP Project Implementation", desc: "Involves overseeing the management of GP project implementation to ensure successful outcomes.", tools: "Related Tools/Techniques: KPI (Key Performance Indicators), ISO 14001 (Conceptual), Project Reports." },
+                    { title: "7. APO-GPS CSTD-007: Undertake Organizational Training Need Analysis", desc: "Covers the process of conducting a training needs analysis within an organization to integrate GP.", tools: "Related Tools/Techniques: Questionnaires, Interviews, Observation, Gap Analysis." },
+                    { title: "8. APO-GPS CSTD-008: Design and Develop a Learning Program", desc: "Focuses on designing and developing a comprehensive learning program.", tools: "Related Tools/Techniques: Curriculum Design, Interactive Learning Materials." },
+                    { title: "9. APO-GPS CSTD-009: Design and Develop Learning Resources", desc: "Involves creating learning resources to support training programs.", tools: "Related Tools/Techniques: Pocket Guides, Posters, Videos, Mobile Apps, Industrial Field Visits." },
+                    { title: "10. APO-GPS CSTD-010: Plan, Organize, and Deliver Group-based Learning...", desc: "Covers planning, organizing, and delivering group-based learning sessions on GP methodology and techniques.", tools: "Related Tools/Techniques: Session Plans, Interactive Facilitation, Participant Feedback." },
+                    { title: "11. APO-GPS CSTD-011: Develop GP Implementation Agenda for an Organization", desc: "Involves developing a comprehensive agenda for implementing GP within an organization.", tools: "Related Tools/Techniques: Walk Through Survey, Material Balance, Eco-mapping, Strategic Communication." },
+                    { title: "12. APO-GPS CSTD-012: Prepare a Comprehensive GP Promotion Plan", desc: "Focuses on preparing a comprehensive GP promotion plan.", tools: "Related Tools/Techniques: Audience Analysis, Messaging Strategy, Digital Marketing, CSR Partnerships." },
+                    { title: "13. APO-GPS CSTD-013: Prepare Innovative Dissemination Materials...", desc: "Involves creating innovative dissemination materials based on GP themes.", tools: "Related Tools/Techniques: Infographics, Mobile Apps, Carbon Calculators, Immersive Programs." }
+                ],
+                impact_title: "Real Impact: Case Studies in Indonesia", impact_desc: "The implementation of Green Productivity has been proven to deliver tangible results for companies in Indonesia.",
+                case1_title: "PT Kimia Farma Tbk: Energy Efficiency & Emissions", case1_desc: "This case study shows how PT Kimia Farma successfully reduced energy consumption and its carbon footprint significantly.",
+                case2_title: "Usklin Soap SME: Production Optimization", case2_desc: "The GP project at the Usklin soap-making SME in Jakarta focused on optimizing raw material use and reducing production waste.",
+                case3_title: "Other Case Studies: Industry & Community", case3_list: "<li><strong class='text-[#008000]'>PT Samator Intiperoksida:</strong> Implemented GP to address H2O2 liquid waste, improving productivity and environmental performance.</li><li><strong class='text-[#008000]'>Ponimin Tofu SME (USU):</strong> Productivity analysis using the GP approach in the tofu production process.</li><li><strong class='text-[#008000]'>Community & Green Corporate Initiatives:</strong> Examples like Bobobox (carbon offset), Meratus (Carbon Neutral), Telkomsel (Jaga Bumi), and various Zero Waste communities show GP adoption at the consumer and CSR levels.</li>",
+                prospects_title: "Future Prospects & GP Recommendations", prospects_desc: "Green Productivity is key to addressing global and regional sustainability challenges.",
+                findings_title: "Key Findings Summary", findings_list: "<li>GP is a holistic strategy for competitive advantage.</li><li>The \"Success in Six\" methodology and GP tools are applicable across various organizational scales.</li><li>Management commitment, accurate needs analysis, careful planning, and continuous learning are pillars of GP success.</li><li>Case studies in Indonesia confirm the relevance and potential of GP.</li>",
+                recommendations_title: "Strategic Recommendations", recommendations_list: "<li><strong class='text-[#008000]'>SME Capacity Building:</strong> Tailored GP programs for SMEs.</li><li><strong class='text-[#008000]'>Integration into National Policy:</strong> Government to integrate GP principles into policies.</li><li><strong class='text-[#008000]'>Cross-Sector Collaboration:</strong> Strengthen partnerships between industry, academia, government, and communities.</li><li><strong class='text-[#008000]'>Transparent Measurement & Reporting:</strong> Encourage adoption of clear GP performance metrics.</li><li><strong class='text-[#008000]'>Continuous Education & Awareness:</strong> Develop ongoing GP education programs.</li>",
+                certification_title: "Green Productivity Specialist (GPS) Certification Requirements", certification_desc: "To earn the \"Green Productivity Specialist\" (GPS) title, participants must pass an exam and prepare a Project Improvement Report.",
+                report_structure_title: "GP Project Report Structure (APO Standard)",
+                report_structure: [
+                    "1. Project Title Page", "2. Executive Summary", "3. Acknowledgement", "4. Table of Content", "5. Introduction", "6. Planning",
+                    "7. Generation & Evaluation of GP Options", "8. Implementation", "9. Monitoring & Review", "10. Sustaining", "11. Conclusion", "12. Annexes"
+                ],
+                footer_cta: "Ready to Lead the Green Change?", footer_desc: "By becoming a Green Productivity Specialist, you will be key in shaping a more efficient and sustainable future. This dashboard was created by Leonard Tiopan Panjaitan, MT, CSRA, GPS, an expert from TSC collaborating with the Regional Productivity Development Center (P3D) of the Jakarta Provincial Government's Manpower, Transmigration, and Energy Office.",
+                footer_copyright: "&copy; 2025 Interactive GP Training Dashboard Jakarta. Created as training material.",
+                charts: {
+                    pillars: { labels: ['Environment', 'Profitability', 'Quality of Life'] },
+                    competency: { label: 'GPS Competency Focus', labels: ['Concept & Strategy', 'Technical Implementation', 'Project Management', 'Training & Development', 'Promotion & Dissemination'] },
+                    tools: { label: 'Effectiveness Index', labels: ['MFCA', 'Eco-mapping', '5S & Kaizen', 'Energy Analysis', 'Fishbone', 'Cost Benefit'] },
+                    kimia_farma: { labels: ['Q1', 'Q2', 'Q3', 'Q4 (Post-GP)'], dataset1_label: 'Energy Consumption (GJ)', dataset2_label: 'Carbon Emissions (tCO2e)' },
+                    usklin: { labels: ['Raw Material', 'Waste', 'Prod. Time'], dataset1_label: 'Before GP', dataset2_label: 'After GP' },
+                    drivers: { dataset1_label: 'External Drivers', dataset2_label: 'Internal Drivers', bubbles_external: [{x: 8, y: 7, r: 15, label: 'Government Regulations'}, {x: 6, y: 6, r: 12, label: 'Customer Demands'}, {x: 4, y: 5, r: 9, label: 'Supply Chain Pressure'}, {x: 7, y: 4, r: 11, label: 'Green Consumerism'}], bubbles_internal: [{x: 9, y: 9, r: 18, label: 'Efficiency & Costs'}, {x: 7, y: 8, r: 13, label: 'Management Commitment'}, {x: 6, y: 7, r: 10, label: 'Health & Safety'}, {x: 8, y: 6, r: 7, label: 'Product & Process Innovation'}], axis_y_label: 'Internal Interest', axis_x_label: 'External Interest' }
+                }
+            },
+            id: {
+                page_title: "Dasbor Interaktif - Pelatihan Green Productivity Jakarta",
+                header_title: "Dasbor GP",
+                nav_concept: "Konsep", nav_methodology: "Metodologi", nav_competency: "Kompetensi", nav_impact: "Studi Kasus", nav_drivers: "Pendorong", nav_certification: "Sertifikasi",
+                hero_title: "Pelatihan Green Productivity Specialist Jakarta",
+                hero_subtitle: "Transformasi Industri Menuju Keberlanjutan: Dasbor Interaktif untuk Menjadi Spesialis GP Bersertifikat APO. Pelatihan ini diselenggarakan oleh Pusat Pengembangan Produktivitas Daerah (P3D) Dinas Tenaga Kerja, Transmigrasi dan Energi, Pemerintah Provinsi Jakarta bekerjasama dengan Trisakti Sustainability Center (TSC) dan National Productivity Organization (NPO) - Indonesia.",
+                concept_title: "Mendalami Konsep Green Productivity (GP)",
+                concept_desc: "Green Productivity (GP) adalah strategi holistik yang dikembangkan oleh Asian Productivity Organization (APO) untuk secara simultan meningkatkan produktivitas dan kinerja lingkungan guna mencapai pembangunan sosio-ekonomi secara keseluruhan. Jelajahi pilar dan manfaatnya.",
+                kpi1_label: "Potensi Pengurangan Limbah", kpi2_label: "Peningkatan Efisiensi Sumber Daya", kpi3_label: "Peningkatan Profitabilitas", kpi4_label: "Peningkatan Kualitas Hidup",
+                chart1_title: "Tiga Pilar Keseimbangan GP", chart1_desc: "GP memiliki fokus tiga dimensi: Lingkungan, Profitabilitas, dan Kualitas. Diagram ini menunjukkan keseimbangan antar pilar tersebut.",
+                method_title: "Metodologi \"Success in Six\" APO & 13 Tugas", method_desc: "Kerangka kerja sistematis ini memandu implementasi proyek Green Productivity. Arahkan kursor pada setiap langkah untuk melihat tugas-tugas spesifik yang terlibat.",
+                step1_title: "1. Getting Started", step1_desc: "Pembentukan tim (T1), Survei & pengumpulan informasi (T2).",
+                step2_title: "2. Planning", step2_desc: "Identifikasi masalah (T3), Penetapan tujuan & target (T4).",
+                step3_title: "3. Generating, Evaluating, & Prioritizing GP Options", step3_desc: "Generasi opsi (T5), Penyaringan & prioritisasi (T6), Formulasi rencana (T7).",
+                step4_title: "4. Implementing GP Options", step4_desc: "Implementasi opsi terpilih (T8).",
+                step5_title: "5. Monitoring and Reviewing", step5_desc: "Monitoring & evaluasi hasil (T9), Pelatihan (T10), Tinjauan manajemen (T11).",
+                step6_title: "6. Sustaining GP", step6_desc: "Identifikasi area masalah baru (T12), Mengintegrasikan perubahan ke sistem manajemen organisasi (T13).",
+                competency_title: "13 Unit Kompetensi Green Productivity Specialist (GPS) APO 201:2023", competency_desc: "Kurikulum komprehensif ini dirancang untuk membangun keahlian Anda. Klik pada setiap unit kompetensi untuk detail lebih lanjut.",
+                chart2_title: "Fokus Area Kompetensi GPS", chart2_desc: "Kompetensi GPS mencakup berbagai bidang penting. Diagram radar ini menyoroti distribusi fokus keahlian.",
+                chart3_title: "Alat & Teknik GP Kunci", chart3_desc: "Berbagai alat dan teknik adalah inti dari implementasi GP. Grafik ini membandingkan efektivitas beberapa alat utama.",
+                competency_details_title: "Detail Unit Kompetensi",
+                units: [
+                    { title: "1. APO-GPS CSTD-001: Promote the Concept of GP", desc: "Unit ini membekali peserta dengan pemahaman tentang pembangunan berkelanjutan dan Green Productivity (GP), termasuk konsep produktivitas, ekologi, hubungan antara produktivitas-lingkungan-sosio-ekonomi, prinsip panduan GP, kekuatan pendorong, manfaat, dan cara mengkomunikasikannya kepada publik.", tools: "Alat/Teknik Terkait: Brainstorming, Analisis Hubungan." },
+                    { title: "2. APO-GPS CSTD-002: Implement GP Methodology and Its Tools", desc: "Fokus pada penerapan metodologi dan alat GP untuk mendiagnosis masalah produktivitas dan mengembangkan solusi.", tools: "Alat/Teknik Terkait: Flowchart, Eco-mapping, Material Balance, Fishbone Diagram, Pareto Diagram, Cost Benefit Analysis, FMEA." },
+                    { title: "3. APO-GPS CSTD-003: Implement Techniques for GP", desc: "Unit ini melibatkan implementasi berbagai teknik untuk meningkatkan produktivitas dan kinerja lingkungan.", tools: "Alat/Teknik Terkait: 5S Techniques, 7 Wastes, 3Rs (Recycle, Reuse, Recovery), Energy Conservation, Design for Environment." },
+                    { title: "4. APO-GPS CSTD-004: Prepare a Plan for a GP Implementation Project", desc: "Membahas persiapan rencana komprehensif untuk implementasi proyek GP.", tools: "Alat/Teknik Terkait: SMART Objectives, FMEA, Gantt Chart (Konseptual)." },
+                    { title: "5. APO-GPS CSTD-005: Facilitate GP Project Implementation", desc: "Fokus pada fasilitasi implementasi proyek GP, memastikan eksekusi yang efektif.", tools: "Alat/Teknik Terkait: Pertemuan Reguler, Analisis Pemangku Kepentingan, Problem Solving Techniques." },
+                    { title: "6. APO-GPS CSTD-006: Facilitate Managing GP Project Implementation", desc: "Melibatkan pengawasan manajemen implementasi proyek GP untuk memastikan hasil yang sukses.", tools: "Alat/Teknik Terkait: KPI (Key Performance Indicators), ISO 14001 (Konseptual), Laporan Proyek." },
+                    { title: "7. APO-GPS CSTD-007: Undertake Organizational Training Need Analysis", desc: "Membahas proses melakukan analisis kebutuhan pelatihan dalam suatu organisasi untuk mengintegrasikan GP.", tools: "Alat/Teknik Terkait: Kuesioner, Wawancara, Observasi, Analisis Kesenjangan." },
+                    { title: "8. APO-GPS CSTD-008: Design and Develop a Learning Program", desc: "Fokus pada perancangan dan pengembangan program pembelajaran yang komprehensif.", tools: "Alat/Teknik Terkait: Kurikulum Desain, Materi Pembelajaran Interaktif." },
+                    { title: "9. APO-GPS CSTD-009: Design and Develop Learning Resources", desc: "Melibatkan pembuatan sumber daya pembelajaran untuk mendukung program pelatihan.", tools: "Alat/Teknik Terkait: Panduan Saku, Poster, Video, Aplikasi Seluler, Kunjungan Lapangan Industri." },
+                    { title: "10. APO-GPS CSTD-010: Plan, Organize, and Deliver Group-based Learning...", desc: "Mencakup perencanaan, pengorganisasian, dan penyampaian sesi pembelajaran berbasis kelompok tentang metodologi dan teknik GP.", tools: "Alat/Teknik Terkait: Rencana Sesi, Fasilitasi Interaktif, Umpan Balik Peserta." },
+                    { title: "11. APO-GPS CSTD-011: Develop GP Implementation Agenda for an Organization", desc: "Melibatkan pengembangan agenda komprehensif untuk mengimplementasikan GP dalam suatu organisasi.", tools: "Alat/Teknik Terkait: Walk Through Survey, Material Balance, Eco-mapping, Komunikasi Strategis." },
+                    { title: "12. APO-GPS CSTD-012: Prepare a Comprehensive GP Promotion Plan", desc: "Fokus pada persiapan rencana promosi GP yang komprehensif.", tools: "Alat/Teknik Terkait: Analisis Audiens, Strategi Pesan, Pemasaran Digital, Kemitraan CSR." },
+                    { title: "13. APO-GPS CSTD-013: Prepare Innovative Dissemination Materials...", desc: "Melibatkan pembuatan materi diseminasi inovatif berdasarkan tema-tema GP.", tools: "Alat/Teknik Terkait: Infografis, Aplikasi Seluler, Kalkulator Karbon, Program Imersif." }
+                ],
+                impact_title: "Dampak Nyata: Studi Kasus di Indonesia", impact_desc: "Implementasi Green Productivity telah terbukti memberikan hasil nyata bagi perusahaan di Indonesia.",
+                case1_title: "PT Kimia Farma Tbk: Efisiensi Energi & Emisi", case1_desc: "Studi kasus ini menunjukkan bagaimana PT Kimia Farma berhasil mengurangi konsumsi energi dan jejak karbon secara signifikan.",
+                case2_title: "UMKM Sabun Usklin: Optimalisasi Produksi", case2_desc: "Proyek GP pada UMKM pembuatan sabun Usklin di Jakarta fokus pada optimalisasi penggunaan bahan baku dan pengurangan limbah produksi.",
+                case3_title: "Studi Kasus Lain: Industri & Komunitas", case3_list: "<li><strong class='text-[#008000]'>PT Samator Intiperoksida:</strong> Mengimplementasikan GP untuk mengatasi limbah cair H2O2, meningkatkan produktivitas dan kinerja lingkungan.</li><li><strong class='text-[#008000]'>UMKM Tahu Ponimin (USU):</strong> Analisis produktivitas menggunakan pendekatan GP pada proses produksi tahu.</li><li><strong class='text-[#008000]'>Inisiatif Komunitas & Korporasi Hijau:</strong> Contoh seperti Bobobox (carbon offset), Meratus (Carbon Neutral), Telkomsel (Jaga Bumi), dan berbagai komunitas Zero Waste menunjukkan adopsi GP di tingkat konsumen dan CSR.</li>",
+                prospects_title: "Prospek Masa Depan & Rekomendasi GP", prospects_desc: "Green Productivity adalah kunci untuk mengatasi tantangan keberlanjutan global dan regional.",
+                findings_title: "Ringkasan Temuan Kunci", findings_list: "<li>GP adalah strategi holistik untuk keunggulan kompetitif.</li><li>Metodologi \"Success in Six\" dan alat GP dapat diterapkan di berbagai skala organisasi.</li><li>Komitmen manajemen, analisis kebutuhan akurat, perencanaan cermat, dan pembelajaran berkelanjutan adalah pilar keberhasilan GP.</li><li>Studi kasus di Indonesia menegaskan relevansi dan potensi GP.</li>",
+                recommendations_title: "Rekomendasi Strategis", recommendations_list: "<li><strong class='text-[#008000]'>Penguatan Kapasitas UKM:</strong> Program GP disesuaikan untuk UKM.</li><li><strong class='text-[#008000]'>Integrasi dalam Kebijakan Nasional:</strong> Pemerintah integrasikan prinsip GP ke dalam kebijakan.</li><li><strong class='text-[#008000]'>Kolaborasi Lintas Sektor:</strong> Memperkuat kemitraan antara industri, akademisi, pemerintah, dan komunitas.</li><li><strong class='text-[#008000]'>Pengukuran & Pelaporan Transparan:</strong> Mendorong adopsi metrik kinerja GP yang jelas.</li><li><strong class='text-[#008000]'>Pendidikan & Kesadaran Berkelanjutan:</strong> Mengembangkan program pendidikan GP berkelanjutan.</li>",
+                certification_title: "Persyaratan Sertifikasi Green Productivity Specialist (GPS)", certification_desc: "Untuk mendapatkan gelar \"Green Productivity Specialist\" (GPS), peserta harus lulus ujian dan menyusun Laporan Proyek Perbaikan.",
+                report_structure_title: "Struktur Laporan Proyek GP (APO Standard)",
+                report_structure: [
+                    "1. Halaman Judul Proyek", "2. Ringkasan Eksekutif", "3. Ucapan Terima Kasih", "4. Daftar Isi", "5. Pendahuluan", "6. Perencanaan",
+                    "7. Generasi & Evaluasi Opsi GP", "8. Implementasi", "9. Pemantauan & Tinjauan", "10. Keberlanjutan", "11. Kesimpulan", "12. Lampiran"
+                ],
+                footer_cta: "Siap Memimpin Perubahan Hijau?", footer_desc: "Dengan menjadi Green Productivity Specialist, Anda akan menjadi kunci dalam membentuk masa depan yang lebih efisien dan berkelanjutan. Dashboard ini dibuat oleh Leonard Tiopan Panjaitan, MT, CSRA, GPS, Seorang Tenaga Ahli TSC yang berkolaborasi dengan Pusat Pengembangan Produktivitas Daerah (P3D) Dinas Tenaga Kerja, Transmigrasi dan Energi, Pemerintah Provinsi Jakarta.",
+                footer_copyright: "&copy; 2025 Dasbor Interaktif Pelatihan GP Jakarta. Dibuat sebagai materi pelatihan.",
+                charts: {
+                    pillars: { labels: ['Lingkungan', 'Profitabilitas', 'Kualitas Hidup'] },
+                    competency: { label: 'Fokus Kompetensi GPS', labels: ['Konsep & Strategi', 'Implementasi Teknis', 'Manajemen Proyek', 'Pelatihan & Pengembangan', 'Promosi & Diseminasi'] },
+                    tools: { label: 'Indeks Efektivitas', labels: ['MFCA', 'Eco-mapping', '5S & Kaizen', 'Analisis Energi', 'Fishbone', 'Cost Benefit'] },
+                    kimia_farma: { labels: ['K1', 'K2', 'K3', 'K4 (Pasca-GP)'], dataset1_label: 'Konsumsi Energi (GJ)', dataset2_label: 'Emisi Karbon (tCO2e)' },
+                    usklin: { labels: ['Bahan Baku', 'Limbah', 'Waktu Prod.'], dataset1_label: 'Sebelum GP', dataset2_label: 'Setelah GP' },
+                    drivers: { dataset1_label: 'Pendorong Eksternal', dataset2_label: 'Pendorong Internal', bubbles_external: [{x: 8, y: 7, r: 15, label: 'Regulasi Pemerintah'}, {x: 6, y: 6, r: 12, label: 'Tuntutan Pelanggan'}, {x: 4, y: 5, r: 9, label: 'Tekanan Rantai Pasok'}, {x: 7, y: 4, r: 11, label: 'Konsumerisme Hijau'}], bubbles_internal: [{x: 9, y: 9, r: 18, label: 'Efisiensi & Biaya'}, {x: 7, y: 8, r: 13, label: 'Komitmen Manajemen'}, {x: 6, y: 7, r: 10, label: 'Kesehatan & Keselamatan'}, {x: 8, y: 6, r: 7, label: 'Inovasi Produk & Proses'}], axis_y_label: 'Kepentingan Internal', axis_x_label: 'Kepentingan Eksternal' }
+                }
+            }
+        };
+
+        let chartInstances = {};
+
+        const setLanguage = (lang) => {
+            const langPack = translations[lang] || translations.id;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (langPack[key]) el.innerHTML = langPack[key];
+            });
+            
+            populateList('case3_list', langPack.case3_list);
+            populateList('findings_list', langPack.findings_list);
+            populateList('recommendations_list', langPack.recommendations_list);
+            populateCollapsible('competency-details', langPack.units);
+            populateCollapsible('report-structure-details', langPack.report_structure, true);
+            
+            document.title = langPack.page_title;
+            document.documentElement.lang = lang;
+            createOrUpdateCharts(lang);
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-id').classList.toggle('active', lang === 'id');
+            try { localStorage.setItem('dashboardLanguage', lang); } catch (e) {}
+        };
+        
+        const populateList = (key, content) => {
+            const el = document.querySelector(`[data-key="${key}"]`);
+            if(el && content) el.innerHTML = content;
+        };
+
+        const populateCollapsible = (containerId, items, isSimple) => {
+            const container = document.getElementById(containerId);
+            if (!container || !items) return;
+            container.innerHTML = '';
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'collapsible-item mb-1';
+                div.innerHTML = isSimple ? `
+                    <div class="collapsible-header" onclick="toggleCollapsible(this)"><span>${item}</span><span class="collapsible-icon">&#9658;</span></div>
+                    <div class="collapsible-content"></div>` : `
+                    <div class="collapsible-header" onclick="toggleCollapsible(this)"><span>${item.title}</span><span class="collapsible-icon">&#9658;</span></div>
+                    <div class="collapsible-content"><p class="text-xs text-gray-700">${item.desc}</p><p class="text-xs font-semibold text-gray-600 mt-1">${item.tools}</p></div>`;
+                container.appendChild(div);
+            });
+        };
+
+        const createOrUpdateCharts = (lang) => {
+            const chartData = translations[lang].charts;
+            const chartTextColor = '#2F4F4F', chartGridColor = '#ADD8E6', chartAccent1 = '#4682B4', chartAccent2 = '#87CEFA', chartAccent3 = '#008000';
+            Object.values(chartInstances).forEach(c => c.destroy());
+
+            chartInstances.gpPillarsChart = new Chart(document.getElementById('gpPillarsChart'), { type: 'doughnut', data: { labels: chartData.pillars.labels, datasets: [{ data: [33.3, 33.3, 33.3], backgroundColor: [chartAccent1, chartAccent2, chartAccent3] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: chartTextColor, font: { size: 9 } } } } } });
+            chartInstances.competencyRadarChart = new Chart(document.getElementById('competencyRadarChart'), { type: 'radar', data: { labels: chartData.competency.labels, datasets: [{ label: chartData.competency.label, data: [8, 9, 7, 8, 7], fill: true, backgroundColor: 'rgba(70, 130, 180, 0.2)', borderColor: chartAccent1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { r: { angleLines: { color: chartGridColor }, grid: { color: chartGridColor }, pointLabels: { font: { size: 8 }, color: chartTextColor }, ticks: { display: false } } } } });
+            chartInstances.gpToolsEffectivenessChart = new Chart(document.getElementById('gpToolsEffectivenessChart'), { type: 'bar', data: { labels: chartData.tools.labels, datasets: [{ label: chartData.tools.label, data: [90, 75, 88, 92, 80, 85], backgroundColor: chartAccent2 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } } } });
+            chartInstances.kimiaFarmaChart = new Chart(document.getElementById('kimiaFarmaChart'), { type: 'line', data: { labels: chartData.kimia_farma.labels, datasets: [{ label: chartData.kimia_farma.dataset1_label, data: [1200, 1180, 1150, 950], borderColor: chartAccent1, fill: true }, { label: chartData.kimia_farma.dataset2_label, data: [250, 245, 240, 190], borderColor: chartAccent3, fill: true }] }, options: { responsive: true, maintainAspectRatio: false } });
+            chartInstances.usklinChart = new Chart(document.getElementById('usklinChart'), { type: 'bar', data: { labels: chartData.usklin.labels, datasets: [{ label: chartData.usklin.dataset1_label, data: [100, 80, 60], backgroundColor: chartAccent2 }, { label: chartData.usklin.dataset2_label, data: [85, 40, 50], backgroundColor: chartAccent1 }] }, options: { responsive: true, maintainAspectRatio: false } });
+            chartInstances.drivingForcesChart = new Chart(document.getElementById('drivingForcesChart'), { type: 'bubble', data: { datasets: [{ label: chartData.drivers.dataset1_label, data: chartData.drivers.bubbles_external, backgroundColor: 'rgba(70, 130, 180, 0.7)' }, { label: chartData.drivers.dataset2_label, data: chartData.drivers.bubbles_internal, backgroundColor: 'rgba(0, 128, 0, 0.7)' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: chartData.drivers.axis_y_label } }, x: { title: { display: true, text: chartData.drivers.axis_x_label } } }, plugins: { tooltip: { callbacks: { label: (c) => `${c.raw.label} (Influence: ${c.raw.r})` } } } } });
+        };
+
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-id').addEventListener('click', () => setLanguage('id'));
+        setLanguage(localStorage.getItem('dashboardLanguage') || 'id');
+    });
+
+    window.toggleCollapsible = function(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('.collapsible-icon');
+        const isOpen = content.classList.contains('open');
+        const parent = element.closest('#competency-details, #report-structure-details');
+        if (parent) {
+            parent.querySelectorAll('.collapsible-content.open').forEach(openContent => {
+                openContent.classList.remove('open');
+                openContent.previousElementSibling.querySelector('.collapsible-icon').classList.remove('rotate');
+            });
+        }
+        if (!isOpen) {
+            content.classList.add('open');
+            icon.classList.add('rotate');
+        }
+    };
+    </script>
+</body>
+</html>
