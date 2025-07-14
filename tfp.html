@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografis AI: Mendorong Kinerja Unggul dengan TFP & GSP</title>
+    <title>Infografis: Mendorong Kinerja Unggul dengan TFP & GSP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,36 +22,18 @@
             width: 100%;
             max-width: 600px;
         }
-        @media (min-width: 640px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        @media (min-width: 1024px) {
-            .chart-container {
-                height: 400px;
-            }
-        }
-        .flowchart-step {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        @media (min-width: 640px) { .chart-container { height: 350px; } }
+        @media (min-width: 1024px) { .chart-container { height: 400px; } }
         .flowchart-step:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .text-shadow-custom {
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
-        .gemini-button {
-            transition: all 0.2s ease-in-out;
-        }
-        .gemini-button:hover {
+        .text-shadow-custom { text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .calc-button:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 20px rgba(0, 122, 192, 0.4);
         }
-        .modal-backdrop {
-            background-color: rgba(0,0,0,0.5);
-        }
+        .modal-backdrop { background-color: rgba(0,0,0,0.5); }
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #0077C0;
@@ -128,8 +110,8 @@
 
         <section id="simulasi" class="mb-12 sm:mb-16">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">3. Simulasi Bonus Interaktif dengan Kalkulator</h2>
-                 <p class="mt-2 max-w-3xl mx-auto text-gray-600 text-sm sm:text-base">Masukkan data perusahaan Anda untuk melihat potensi bonus GSP yang dihitung oleh Kalkulator. (Gunakan Rasio Rucker historis 40% sebagai asumsi).</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">3. Kalkulator Simulasi Bonus</h2>
+                 <p class="mt-2 max-w-3xl mx-auto text-gray-600 text-sm sm:text-base">Masukkan data perusahaan Anda untuk melihat potensi bonus GSP. (Menggunakan model Rucker Plan dengan Rasio historis 40%).</p>
             </div>
              <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -149,14 +131,14 @@
                                 <input type="number" id="laborCost" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="Contoh: 190000000000">
                             </div>
                         </div>
-                        <button id="simulateButton" class="mt-6 w-full bg-gradient-to-r from-[#0077C0] to-[#00A1E4] text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center gemini-button">
-                            <span class="mr-2 font-bold">(Kalkulator)</span> Simulasikan
+                        <button id="simulateButton" class="mt-6 w-full bg-gradient-to-r from-[#0077C0] to-[#00A1E4] text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center calc-button">
+                            Hitung Bonus
                         </button>
                     </div>
                     <div class="mt-6 lg:mt-0">
                         <h3 class="text-lg sm:text-xl font-bold text-center mb-2 text-[#005082]">Hasil Simulasi & Alokasi Bonus</h3>
                         <div id="simulationResult" class="p-4 bg-gray-50 rounded-lg min-h-[100px] text-center flex items-center justify-center">
-                            <p class="text-gray-500">Hasil simulasi Kalkulator akan muncul di sini.</p>
+                            <p class="text-gray-500">Hasil perhitungan akan muncul di sini.</p>
                         </div>
                         <div class="chart-container h-56 sm:h-64 md:h-72 mt-4">
                             <canvas id="bonusAllocationChart"></canvas>
@@ -198,7 +180,6 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">5. Konteks Indonesia (ID)</h2>
                 <p class="mt-2 max-w-3xl mx-auto text-gray-600 text-sm sm:text-base">Implementasi di Indonesia harus beradaptasi dengan realitas regulasi, budaya, dan kapasitas teknis.</p>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
                 <div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-4 sm:p-6">
                     <h3 class="text-lg sm:text-xl font-bold text-center mb-4 text-[#005082]">Tantangan Implementasi</h3>
@@ -222,19 +203,19 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="rekomendasi">
             <div class="text-center mb-10 sm:mb-12">
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">6. Rekomendasi Strategis</h2>
                 <p class="mt-2 max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">Tindakan terkoordinasi dari perusahaan dan pembuat kebijakan diperlukan untuk bergerak maju.</p>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl sm:text-2xl font-bold text-[#0077C0]">[Perusahaan]</h3>
                         <button id="recommendationButton" class="bg-[#0077C0] text-white text-xs sm:text-sm font-bold py-2 px-3 rounded-lg flex items-center justify-center gemini-button">
-                            <span class="mr-2 font-bold">(Kalkulator)</span> Rekomendasi
+                            <span class="mr-2 font-bold">(Otomatis)</span>
+                            Rekomendasi
                         </button>
                     </div>
                     <div class="relative">
@@ -256,7 +237,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
                      <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center text-[#0077C0]">[Kebijakan]</h3>
                      <div class="space-y-4 sm:space-y-6">
@@ -294,147 +274,65 @@
         </a>
     </footer>
 
-    <!-- Tombol Back to Main Page ditambahkan di sini -->
     <div class="text-center py-6 px-4 bg-gray-100">
         <a href="index.html" class="inline-block bg-gray-600 text-white font-bold text-base py-3 px-8 rounded-lg shadow-lg hover:bg-gray-700 transition-transform hover:scale-105">
-            Back to the Main Page
+            Kembali ke Halaman Utama
         </a>
     </div>
 
-    <!-- AI Recommendation Modal -->
     <div id="aiModal" class="fixed inset-0 z-50 items-center justify-center hidden">
         <div class="modal-backdrop fixed inset-0"></div>
         <div class="bg-white rounded-lg shadow-xl m-4 sm:m-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative p-6">
-            <h3 class="text-xl font-bold text-[#005082] mb-4">(Kalkulator) Rekomendasi Implementasi GSP</h3>
+            <h3 class="text-xl font-bold text-[#005082] mb-4">Rekomendasi Implementasi GSP</h3>
             <div id="modalContent" class="prose max-w-none text-gray-700">
-                <div class="flex justify-center items-center h-48">
-                    <div class="loader"></div>
-                </div>
+                <div class="flex justify-center items-center h-48"><div class="loader"></div></div>
             </div>
             <button id="closeModalButton" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
         </div>
     </div>
 
     <script>
-        const brilliantBlues = {
-            primary: '#00A1E4',
-            secondary: '#0077C0',
-            tertiary: '#005082',
-            accent: '#F2F2F2',
-            text: '#333333'
-        };
-
-        async function callGeminiAPI(prompt) {
-            const apiKey = ""; // Leave empty, handled by environment
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ role: "user", parts: [{ text: prompt }] }]
-            };
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    return result.candidates[0].content.parts[0].text;
-                } else {
-                    console.error("Unexpected API response structure:", result);
-                    return "Maaf, terjadi kesalahan saat memproses respons dari AI.";
-                }
-            } catch (error) {
-                console.error("Error calling Gemini API:", error);
-                return "Maaf, tidak dapat terhubung ke layanan Kalkulator saat ini. Harap periksa koneksi internet Anda.";
-            }
-        }
-
-        const tooltipTitleCallback = (tooltipItems) => {
-            const item = tooltipItems[0];
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-              return label.join(' ');
-            } else {
-              return label;
-            }
-        };
-
+        const brilliantBlues = { primary: '#00A1E4', secondary: '#0077C0', tertiary: '#005082', text: '#333333' };
         const universalChartOptions = {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: {
-                    position: 'top',
-                    labels: {
-                        color: brilliantBlues.text,
-                        font: { size: 12 }
-                    }
-                },
+                legend: { position: 'top', labels: { color: brilliantBlues.text, font: { size: 12 } } },
                 tooltip: {
-                    callbacks: { title: tooltipTitleCallback },
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
                     titleFont: { size: 14 },
                     bodyFont: { size: 12 },
-                    padding: 8
+                    padding: 8,
+                    callbacks: {
+                        title: (tooltipItems) => {
+                            let label = tooltipItems[0].chart.data.labels[tooltipItems[0].dataIndex];
+                            return Array.isArray(label) ? label.join(' ') : label;
+                        }
+                    }
                 }
             },
             scales: {
-                 x: {
-                    ticks: { color: brilliantBlues.text, font: { size: 11 } },
-                    grid: { display: false }
-                },
-                y: {
-                    ticks: { color: brilliantBlues.text, font: { size: 11 } },
-                    grid: { color: '#e0e0e0' }
-                }
+                 x: { ticks: { color: brilliantBlues.text, font: { size: 11 } }, grid: { display: false } },
+                 y: { ticks: { color: brilliantBlues.text, font: { size: 11 } }, grid: { color: '#e0e0e0' } }
             }
         };
-        
+
         const gspVsProfitSharingCtx = document.getElementById('gspVsProfitSharingChart').getContext('2d');
         new Chart(gspVsProfitSharingCtx, {
             type: 'bar',
             data: {
                 labels: ['Kontrol Karyawan ("Garis Pandang")', 'Dampak Motivasi Langsung'],
                 datasets: [
-                    {
-                        label: 'GSP',
-                        data: [9, 8.5],
-                        backgroundColor: brilliantBlues.secondary,
-                        borderColor: brilliantBlues.tertiary,
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Profit Sharing',
-                        data: [3, 4],
-                        backgroundColor: brilliantBlues.primary,
-                        borderColor: brilliantBlues.secondary,
-                        borderWidth: 1
-                    }
+                    { label: 'GSP', data: [9, 8.5], backgroundColor: brilliantBlues.secondary },
+                    { label: 'Profit Sharing', data: [3, 4], backgroundColor: brilliantBlues.primary }
                 ]
             },
             options: { ...universalChartOptions,
                 scales: {
-                     y: { 
-                         beginAtZero: true, 
-                         max: 10,
-                         title: { display: true, text: 'Peringkat Relatif (1-10)', font: {size: 10} },
-                         ticks: { color: brilliantBlues.text }
-                     },
+                     y: { beginAtZero: true, max: 10, title: { display: true, text: 'Peringkat Relatif (1-10)', font: {size: 10} }, ticks: { color: brilliantBlues.text } },
                      x: { ticks: { color: brilliantBlues.text, font: { size: 11 } } }
                 },
-                plugins: {
-                     ...universalChartOptions.plugins,
-                     legend: { position: 'bottom' }
-                }
+                plugins: { ...universalChartOptions.plugins, legend: { position: 'bottom' } }
             }
         });
 
@@ -451,117 +349,12 @@
             },
             options: { ...universalChartOptions,
                  indexAxis: 'y',
-                 plugins: {
-                     ...universalChartOptions.plugins,
-                     legend: { display: false }
-                 },
+                 plugins: { ...universalChartOptions.plugins, legend: { display: false } },
                  scales: {
-                     x: {
-                         beginAtZero: true, max: 10,
-                         title: { display: true, text: 'Kekuatan Hubungan Kinerja-Imbalan', font: {size: 10} },
-                         ticks: { color: brilliantBlues.text }
-                     },
+                     x: { beginAtZero: true, max: 10, title: { display: true, text: 'Kekuatan Hubungan Kinerja-Imbalan', font: {size: 10} }, ticks: { color: brilliantBlues.text } },
                      y: { ticks: { color: brilliantBlues.text, font: { size: 12 } } }
                  }
             }
-        });
-
-        // Bonus Allocation Chart
-        const bonusAllocationCtx = document.getElementById('bonusAllocationChart').getContext('2d');
-        let bonusChart = new Chart(bonusAllocationCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Karyawan (60%)', 'Perusahaan (20%)', 'Cadangan (20%)'],
-                datasets: [{
-                    label: 'Alokasi Bonus',
-                    data: [0, 0, 0],
-                    backgroundColor: [brilliantBlues.secondary, brilliantBlues.primary, '#cccccc'],
-                    borderColor: brilliantBlues.accent,
-                    borderWidth: 3,
-                    hoverOffset: 4
-                }]
-            },
-             options: { ...universalChartOptions,
-                plugins: {
-                     ...universalChartOptions.plugins,
-                     legend: { position: 'bottom' },
-                     tooltip: {
-                         callbacks: {
-                            title: tooltipTitleCallback,
-                            label: function(context) {
-                                let label = 'Alokasi';
-                                if (context.parsed !== null) {
-                                    const valueInMiliar = context.parsed / 1000000000;
-                                    label = `${context.label}: Rp ${valueInMiliar.toFixed(2)} Miliar`;
-                                }
-                                return label;
-                            }
-                        }
-                     }
-                }
-             }
-        });
-
-        function updateBonusChart(gain) {
-            const employeeShare = gain * 0.6;
-            const companyShare = gain * 0.2;
-            const reserveShare = gain * 0.2;
-            bonusChart.data.datasets[0].data = [employeeShare, companyShare, reserveShare];
-            bonusChart.update();
-        }
-
-        // Simulation Logic
-        const simulateButton = document.getElementById('simulateButton');
-        const simulationResultDiv = document.getElementById('simulationResult');
-        simulateButton.addEventListener('click', async () => {
-            const totalSales = document.getElementById('totalSales').value;
-            const materialCost = document.getElementById('materialCost').value;
-            const laborCost = document.getElementById('laborCost').value;
-
-            if (!totalSales || !materialCost || !laborCost) {
-                simulationResultDiv.innerHTML = `<p class="text-red-500">Harap isi semua kolom untuk simulasi.</p>`;
-                return;
-            }
-
-            simulateButton.disabled = true;
-            simulateButton.innerHTML = `<div class="loader"></div><span class="ml-2">Menghitung...</span>`;
-            
-            const prompt = `Hitung potensi bonus Gain Sharing Productivity (GSP) menggunakan Rucker Plan dengan data berikut:
-            - Total Penjualan (SVOP): ${totalSales}
-            - Biaya Material & Jasa: ${materialCost}
-            - Biaya Tenaga Kerja Aktual: ${laborCost}
-            - Rasio Rucker historis (Baseline): 40%
-
-            Langkah perhitungan:
-            1. Hitung Nilai Tambah (Value Added) = SVOP - Biaya Material & Jasa.
-            2. Hitung Biaya Tenaga Kerja yang Diizinkan = 40% * Nilai Tambah.
-            3. Hitung Keuntungan (Gain/Bonus Pool) = Biaya Tenaga Kerja yang Diizinkan - Biaya Tenaga Kerja Aktual.
-
-            Berikan jawaban dalam format JSON berikut, tanpa markdown:
-            {"gain": [angka keuntungan], "analysis": "[analisis singkat dan positif tentang hasil perhitungan dalam 1-2 kalimat]"}`;
-
-            const responseText = await callGeminiAPI(prompt);
-            
-            try {
-                const result = JSON.parse(responseText);
-                const gain = result.gain > 0 ? result.gain : 0;
-                const gainInMiliar = (gain / 1000000000).toFixed(2);
-                
-                simulationResultDiv.innerHTML = `
-                    <div class="text-left">
-                        <p class="font-bold text-lg text-green-600">Potensi Bonus: Rp ${gainInMiliar} Miliar</p>
-                        <p class="text-sm text-gray-600 mt-1">${result.analysis}</p>
-                    </div>
-                `;
-                updateBonusChart(gain);
-
-            } catch (e) {
-                simulationResultDiv.innerHTML = `<p class="text-red-500">Gagal memproses hasil Kalkulator. Coba lagi.</p>`;
-                updateBonusChart(0);
-            }
-
-            simulateButton.disabled = false;
-            simulateButton.innerHTML = `<span class="mr-2 font-bold">(Kalkulator)</span> Simulasikan`;
         });
 
         const indonesiaChallengesCtx = document.getElementById('indonesiaChallengesChart').getContext('2d');
@@ -581,25 +374,14 @@
                     pointHoverBorderColor: brilliantBlues.secondary
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { callbacks: { title: tooltipTitleCallback } }
-                },
+            options: { ...universalChartOptions,
+                plugins: { ...universalChartOptions.plugins, legend: { display: false } },
                 scales: {
                     r: {
                         angleLines: { color: '#e0e0e0' },
                         grid: { color: '#e0e0e0' },
-                        pointLabels: {
-                             font: { size: 11 }, 
-                             color: brilliantBlues.text
-                        },
-                        ticks: {
-                            display: false,
-                            stepSize: 2
-                        },
+                        pointLabels: { font: { size: 11 }, color: brilliantBlues.text },
+                        ticks: { display: false, stepSize: 2 },
                         suggestedMin: 0,
                         suggestedMax: 10
                     }
@@ -607,7 +389,100 @@
             }
         });
 
-        // Modal Logic
+        const bonusAllocationCtx = document.getElementById('bonusAllocationChart').getContext('2d');
+        const bonusChart = new Chart(bonusAllocationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Karyawan (60%)', 'Perusahaan (20%)', 'Cadangan (20%)'],
+                datasets: [{ data: [0, 0, 0], backgroundColor: [brilliantBlues.secondary, brilliantBlues.primary, '#cccccc'], borderWidth: 3 }]
+            },
+             options: { ...universalChartOptions,
+                plugins: {
+                     ...universalChartOptions.plugins,
+                     legend: { position: 'bottom' },
+                     tooltip: {
+                         callbacks: {
+                            ...universalChartOptions.plugins.tooltip.callbacks,
+                            label: function(context) {
+                                if (context.parsed !== null) {
+                                    const valueInBillion = context.parsed / 1000000000;
+                                    return `Alokasi: Rp ${valueInBillion.toFixed(2)} Miliar`;
+                                }
+                                return '';
+                            }
+                        }
+                     }
+                }
+             }
+        });
+        
+        const simulateButton = document.getElementById('simulateButton');
+        const simulationResultDiv = document.getElementById('simulationResult');
+        simulateButton.addEventListener('click', () => {
+            const totalSales = parseFloat(document.getElementById('totalSales').value);
+            const materialCost = parseFloat(document.getElementById('materialCost').value);
+            const laborCost = parseFloat(document.getElementById('laborCost').value);
+
+            if (isNaN(totalSales) || isNaN(materialCost) || isNaN(laborCost)) {
+                simulationResultDiv.innerHTML = `<p class="text-red-500">Harap isi semua kolom untuk simulasi.</p>`;
+                return;
+            }
+
+            try {
+                const ruckerRatio = 0.40;
+                const valueAdded = totalSales - materialCost;
+                const allowedLaborCost = valueAdded * ruckerRatio;
+                const gain = allowedLaborCost - laborCost;
+                
+                if (gain > 0) {
+                    const gainInBillion = (gain / 1000000000).toFixed(2);
+                    simulationResultDiv.innerHTML = `
+                        <div class="text-left">
+                            <p class="font-bold text-lg text-green-600">Potensi Bonus: Rp ${gainInBillion} Miliar</p>
+                            <p class="text-sm text-gray-600 mt-1">Hasil ini menunjukkan adanya peningkatan efisiensi yang positif, sehingga distribusi bonus layak dilakukan.</p>
+                        </div>`;
+                    
+                    const employeeShare = gain * 0.6;
+                    const companyShare = gain * 0.2;
+                    const reserveShare = gain * 0.2;
+                    bonusChart.data.datasets[0].data = [employeeShare, companyShare, reserveShare];
+                } else {
+                    simulationResultDiv.innerHTML = `
+                        <div class="text-left">
+                            <p class="font-bold text-lg text-orange-600">Potensi Bonus: Rp 0.00 Miliar</p>
+                            <p class="text-sm text-gray-600 mt-1">Target efisiensi tidak tercapai. Biaya tenaga kerja aktual melebihi biaya yang diizinkan, sehingga tidak ada bonus yang dihasilkan.</p>
+                        </div>`;
+                    bonusChart.data.datasets[0].data = [0, 0, 0];
+                }
+                bonusChart.update();
+
+            } catch (e) {
+                simulationResultDiv.innerHTML = `<p class="text-red-500">Perhitungan gagal. Mohon periksa kembali angka yang dimasukkan.</p>`;
+                bonusChart.data.datasets[0].data = [0,0,0];
+                bonusChart.update();
+            }
+        });
+
+        // --- Modal Logic (still uses API for text generation) ---
+        async function callGeminiAPI(prompt) {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const result = await response.json();
+                return result.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Error calling API:", error);
+                return "Maaf, tidak dapat terhubung ke layanan database. Harap periksa koneksi internet Anda.";
+            }
+        }
+
         const aiModal = document.getElementById('aiModal');
         const recommendationButton = document.getElementById('recommendationButton');
         const closeModalButton = document.getElementById('closeModalButton');
@@ -616,19 +491,13 @@
         recommendationButton.addEventListener('click', async () => {
             aiModal.style.display = 'flex';
             modalContent.innerHTML = `<div class="flex justify-center items-center h-48"><div class="loader"></div></div>`;
-            
             const prompt = `Sebagai konsultan SDM, berikan rekomendasi strategis dalam format poin-poin untuk perusahaan manufaktur di Indonesia yang ingin mulai menerapkan sistem Gain Sharing Productivity (GSP). Fokus pada langkah-langkah praktis di Fase 1 (Bangun Fondasi). Gunakan bahasa Indonesia yang profesional dan mudah dimengerti. Format jawaban sebagai HTML dengan heading h4 dan unordered list (ul/li).`;
-            
             const responseText = await callGeminiAPI(prompt);
             modalContent.innerHTML = responseText;
         });
 
-        closeModalButton.addEventListener('click', () => {
-            aiModal.style.display = 'none';
-        });
-        aiModal.querySelector('.modal-backdrop').addEventListener('click', () => {
-            aiModal.style.display = 'none';
-        });
+        closeModalButton.addEventListener('click', () => { aiModal.style.display = 'none'; });
+        aiModal.querySelector('.modal-backdrop').addEventListener('click', () => { aiModal.style.display = 'none'; });
 
     </script>
 </body>
