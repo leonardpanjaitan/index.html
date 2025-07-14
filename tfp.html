@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis AI: Mendorong Kinerja Unggul dengan TFP & GSP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 100%;
+            max-width: 600px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .text-shadow-custom {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .gemini-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .gemini-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 122, 192, 0.4);
+        }
+        .modal-backdrop {
+            background-color: rgba(0,0,0,0.5);
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0077C0;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-gradient-to-br from-[#005082] to-[#00A1E4] text-white text-center py-16 sm:py-20 px-4">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3 text-shadow-custom">Mendorong Kinerja Unggul</h1>
+        <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
+            Kajian Visual tentang TFP & GSP dalam Penetapan Upah dan Bonus Kinerja
+        </p>
+        <p class="mt-3 text-xs sm:text-sm opacity-90">Berdasarkan Analisis oleh Leonard Tiopan Panjaitan</p>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 sm:p-8">
+        
+        <section id="konsep-fundamental" class="mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">1. Konsep Fundamental</h2>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">TFP dan GSP adalah alat strategis yang saling melengkapi untuk mendorong efisiensi dan motivasi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-[#0077C0] mb-3 flex items-center">?? Total Factor Productivity (TFP)</h3>
+                    <p class="mb-4 text-sm sm:text-base">Ukuran efisiensi holistik yang menjawab: "Apakah perusahaan kita menjadi lebih efisien secara keseluruhan".</p>
+                    <div class="bg-blue-50 border-l-4 border-[#00A1E4] p-3 sm:p-4 rounded-r-lg text-sm sm:text-base">
+                        <p class="font-bold">Peran Strategis:</p>
+                        <p>Sebagai mekanisme pendanaan bonus, bukan pemicu bonus individu secara langsung.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-[#0077C0] mb-3 flex items-center">?? Gain Sharing Productivity (GSP)</h3>
+                    <p class="mb-4 text-sm sm:text-base">Sistem insentif yang membagikan hasil efisiensi kepada karyawan yang menciptakannya.</p>
+                    <div class="bg-blue-50 border-l-4 border-[#00A1E4] p-3 sm:p-4 rounded-r-lg text-sm sm:text-base">
+                        <p class="font-bold">Keunggulan Utama:</p>
+                        <p>Menciptakan "Garis Pandang" (Line of Sight) yang jelas antara upaya dan imbalan.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 mt-10 sm:mt-12">
+                <h3 class="text-lg sm:text-xl font-bold text-center mb-2 text-[#005082]">GSP vs Profit Sharing</h3>
+                <p class="text-center max-w-3xl mx-auto text-gray-600 mb-6 text-sm sm:text-base">GSP lebih memotivasi karena memberi imbalan atas kinerja yang dapat dikontrol langsung oleh karyawan.</p>
+                <div class="chart-container">
+                    <canvas id="gspVsProfitSharingChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="model-gsp" class="mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">2. Tiga Model Utama GSP</h2>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">Pilihan model bergantung pada prioritas strategis perusahaan.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                 <h3 class="text-lg sm:text-xl font-bold text-center mb-2 text-[#005082]">Fokus Peningkatan Produktivitas</h3>
+                 <p class="text-center max-w-3xl mx-auto text-gray-600 mb-6 text-sm sm:text-base">Model finansial (Scanlon, Rucker) melindungi profitabilitas, sementara model fisik (Improshare) memaksimalkan motivasi.</p>
+                <div class="chart-container">
+                    <canvas id="gspModelsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulasi" class="mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">3. Simulasi Bonus Interaktif dengan Kalkulator</h2>
+                 <p class="mt-2 max-w-3xl mx-auto text-gray-600 text-sm sm:text-base">Masukkan data perusahaan Anda untuk melihat potensi bonus GSP yang dihitung oleh Kalkulator. (Gunakan Rasio Rucker historis 40% sebagai asumsi).</p>
+            </div>
+             <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 text-[#005082]">Masukkan Data Perusahaan Anda (Rp)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="totalSales" class="block text-sm font-medium text-gray-700">Total Penjualan (SVOP)</label>
+                                <input type="number" id="totalSales" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="Contoh: 1150000000000">
+                            </div>
+                             <div>
+                                <label for="materialCost" class="block text-sm font-medium text-gray-700">Biaya Material & Jasa</label>
+                                <input type="number" id="materialCost" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="Contoh: 650000000000">
+                            </div>
+                             <div>
+                                <label for="laborCost" class="block text-sm font-medium text-gray-700">Biaya Tenaga Kerja Aktual</label>
+                                <input type="number" id="laborCost" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="Contoh: 190000000000">
+                            </div>
+                        </div>
+                        <button id="simulateButton" class="mt-6 w-full bg-gradient-to-r from-[#0077C0] to-[#00A1E4] text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center gemini-button">
+                            <span class="mr-2">?</span> Simulasikan dengan Kalkulator
+                        </button>
+                    </div>
+                    <div class="mt-6 lg:mt-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-center mb-2 text-[#005082]">Hasil Simulasi & Alokasi Bonus</h3>
+                        <div id="simulationResult" class="p-4 bg-gray-50 rounded-lg min-h-[100px] text-center flex items-center justify-center">
+                            <p class="text-gray-500">Hasil simulasi Kalkulator akan muncul di sini.</p>
+                        </div>
+                        <div class="chart-container h-56 sm:h-64 md:h-72 mt-4">
+                            <canvas id="bonusAllocationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="studi-kasus" class="mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">4. Pelajaran dari Panggung Global ??</h2>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">Konteks budaya dan organisasi adalah kunci keberhasilan implementasi.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 flex flex-col items-center text-center">
+                    <div class="text-3xl sm:text-4xl mb-3">??</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 text-[#0077C0]">Nucor Steel</h3>
+                    <p class="font-semibold mb-2 text-sm sm:text-base">Budaya Dulu, Baru Sistem</p>
+                    <p class="text-gray-600 text-sm">Sistem bonus berhasil karena memperkuat budaya desentralisasi dan kepercayaan yang sudah ada.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 flex flex-col items-center text-center">
+                    <div class="text-3xl sm:text-4xl mb-3">?</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 text-[#0077C0]">Lincoln Electric</h3>
+                    <p class="font-semibold mb-2 text-sm sm:text-base">Adaptasi itu Kunci</p>
+                    <p class="text-gray-600 text-sm">Sistem individualistis gagal saat diekspor ke budaya kolektif, menunjukkan pentingnya adaptasi lokal.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 flex flex-col items-center text-center">
+                    <div class="text-3xl sm:text-4xl mb-3">???</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 text-[#0077C0]">Herman Miller</h3>
+                    <p class="font-semibold mb-2 text-sm sm:text-base">GSP sebagai Sistem Manajemen</p>
+                    <p class="text-gray-600 text-sm">Scanlon Plan menjadi filosofi manajemen yang mendorong inovasi dari bawah ke atas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="konteks-indonesia" class="mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">5. Konteks Indonesia ????</h2>
+                <p class="mt-2 max-w-3xl mx-auto text-gray-600 text-sm sm:text-base">Implementasi di Indonesia harus beradaptasi dengan realitas regulasi, budaya, dan kapasitas teknis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+                <div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-center mb-4 text-[#005082]">Tantangan Implementasi</h3>
+                    <p class="text-center max-w-2xl mx-auto text-gray-600 mb-6 text-sm sm:text-base">Harmonisasi dengan regulasi UMP dan budaya kolektif adalah rintangan terbesar.</p>
+                     <div class="chart-container">
+                        <canvas id="indonesiaChallengesChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-4 sm:p-6 flex flex-col justify-center">
+                    <div class="text-center">
+                        <div class="text-3xl sm:text-4xl mb-3">??</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 text-[#0077C0]">Pola UKM: Pragmatisme</h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">UKM memulai dengan sistem hibrida sederhana yang mudah diukur.</p>
+                        <div class="text-left text-sm sm:text-base space-y-2">
+                           <div class="flex items-center"><span class="text-lg mr-2 text-green-500">?</span><span>Bonus kehadiran</span></div>
+                           <div class="flex items-center"><span class="text-lg mr-2 text-green-500">?</span><span>Bonus target penjualan</span></div>
+                           <div class="flex items-center"><span class="text-lg mr-2 text-green-500">?</span><span>Bonus volume penjualan</span></div>
+                           <div class="flex items-center"><span class="text-lg mr-2 text-green-500">?</span><span>Bonus jumlah pelanggan</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rekomendasi">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-[#005082]">6. Rekomendasi Strategis</h2>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">Tindakan terkoordinasi dari perusahaan dan pembuat kebijakan diperlukan untuk bergerak maju.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl sm:text-2xl font-bold text-[#0077C0]">?? Untuk Perusahaan</h3>
+                        <button id="recommendationButton" class="bg-[#0077C0] text-white text-xs sm:text-sm font-bold py-2 px-3 rounded-lg flex items-center justify-center gemini-button">
+                            <span class="mr-2">?</span> Dapatkan Rekomendasi Kalkulator
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <div class="border-l-2 border-dashed border-[#0077C0] absolute h-full top-0 left-3 sm:left-4"></div>
+                        <div class="mb-6 pl-10 sm:pl-12 relative flowchart-step">
+                            <div class="absolute -left-1.5 top-1 bg-[#00A1E4] text-white rounded-full h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center font-bold">1</div>
+                            <h4 class="font-bold text-base sm:text-lg">Fase 1: Bangun Fondasi</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Mulai dengan insentif sederhana. Fokus pada membangun kepercayaan dan literasi data.</p>
+                        </div>
+                        <div class="mb-6 pl-10 sm:pl-12 relative flowchart-step">
+                             <div class="absolute -left-1.5 top-1 bg-[#0077C0] text-white rounded-full h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center font-bold">2</div>
+                            <h4 class="font-bold text-base sm:text-lg">Fase 2: Proyek Percontohan</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Pilih satu departemen untuk uji coba model GSP formal. Libatkan karyawan dalam desain.</p>
+                        </div>
+                        <div class="pl-10 sm:pl-12 relative flowchart-step">
+                           <div class="absolute -left-1.5 top-1 bg-[#005082] text-white rounded-full h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center font-bold">3</div>
+                            <h4 class="font-bold text-base sm:text-lg">Fase 3: Integrasi & Skala</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Perluas model yang berhasil. Pertimbangkan TFP sebagai pendana bonus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                     <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center text-[#0077C0]">?? Untuk Pembuat Kebijakan</h3>
+                     <div class="space-y-4 sm:space-y-6">
+                         <div class="flex items-start">
+                             <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">??</div>
+                             <div>
+                                 <h4 class="font-bold text-base sm:text-lg">Kembangkan Panduan Teknis</h4>
+                                 <p class="text-gray-600 text-sm sm:text-base">Buat panduan praktis dengan contoh untuk membantu adopsi, terutama bagi UKM.</p>
+                             </div>
+                         </div>
+                         <div class="flex items-start">
+                             <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">???</div>
+                             <div>
+                                 <h4 class="font-bold text-base sm:text-lg">Ciptakan "Ruang Aman" Regulasi</h4>
+                                 <p class="text-gray-600 text-sm sm:text-base">Harmonisasikan aturan GSP dengan UMP untuk mengurangi ketidakpastian hukum.</p>
+                             </div>
+                         </div>
+                          <div class="flex items-start">
+                             <div class="text-2xl sm:text-3xl mr-3 sm:mr-4">??</div>
+                             <div>
+                                 <h4 class="font-bold text-base sm:text-lg">Promosikan Edukasi</h4>
+                                 <p class="text-gray-600 text-sm sm:text-base">Bangun kapasitas SDM agar mampu merancang dan mengelola sistem ini.</p>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="text-center py-6 sm:py-8 bg-[#005082] text-white mt-8 sm:mt-12">
+        <p class="text-sm">Infografis berdasarkan analisis oleh Leonard Tiopan Panjaitan - 2025.</p>
+        <a href="https://greenproductivityblog.wordpress.com/2025/07/14/mendorong-kinerja-unggul-kajian-tentang-total-factor-productivity-tfp-dan-gain-sharing-productivity-gsp-dalam-penetapan-upah-dan-bonus-di-era-industri-modern/" target="_blank" rel="noopener noreferrer" class="text-xs mt-2 text-blue-300 hover:text-white underline break-all px-4">
+            greenproductivityblog.wordpress.com
+        </a>
+    </footer>
+
+    <!-- Tombol Back to Main Page ditambahkan di sini -->
+    <div class="text-center py-6 px-4 bg-gray-100">
+        <a href="index.html" class="inline-block bg-gray-600 text-white font-bold text-base py-3 px-8 rounded-lg shadow-lg hover:bg-gray-700 transition-transform hover:scale-105">
+            ? Back to the Main Page
+        </a>
+    </div>
+
+    <!-- Calculator Recommendation Modal -->
+    <div id="aiModal" class="fixed inset-0 z-50 items-center justify-center hidden">
+        <div class="modal-backdrop fixed inset-0"></div>
+        <div class="bg-white rounded-lg shadow-xl m-4 sm:m-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative p-6">
+            <h3 class="text-xl font-bold text-[#005082] mb-4">? Rekomendasi Implementasi GSP dari Kalkulator</h3>
+            <div id="modalContent" class="prose max-w-none text-gray-700">
+                <div class="flex justify-center items-center h-48">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <button id="closeModalButton" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            primary: '#00A1E4',
+            secondary: '#0077C0',
+            tertiary: '#005082',
+            accent: '#F2F2F2',
+            text: '#333333'
+        };
+
+        async function callGeminiAPI(prompt) {
+            const apiKey = ""; // Leave empty, handled by environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ role: "user", parts: [{ text: prompt }] }]
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error("Unexpected API response structure:", result);
+                    return "Maaf, terjadi kesalahan saat memproses respons dari Kalkulator.";
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                return "Maaf, tidak dapat terhubung ke layanan Kalkulator saat ini. Harap periksa koneksi internet Anda.";
+            }
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const universalChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: brilliantBlues.text,
+                        font: { size: 12 }
+                    }
+                },
+                tooltip: {
+                    callbacks: { title: tooltipTitleCallback },
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleFont: { size: 14 },
+                    bodyFont: { size: 12 },
+                    padding: 8
+                }
+            },
+            scales: {
+                 x: {
+                    ticks: { color: brilliantBlues.text, font: { size: 11 } },
+                    grid: { display: false }
+                },
+                y: {
+                    ticks: { color: brilliantBlues.text, font: { size: 11 } },
+                    grid: { color: '#e0e0e0' }
+                }
+            }
+        };
+        
+        const gspVsProfitSharingCtx = document.getElementById('gspVsProfitSharingChart').getContext('2d');
+        new Chart(gspVsProfitSharingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Kontrol Karyawan ("Garis Pandang")', 'Dampak Motivasi Langsung'],
+                datasets: [
+                    {
+                        label: 'GSP',
+                        data: [9, 8.5],
+                        backgroundColor: brilliantBlues.secondary,
+                        borderColor: brilliantBlues.tertiary,
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Profit Sharing',
+                        data: [3, 4],
+                        backgroundColor: brilliantBlues.primary,
+                        borderColor: brilliantBlues.secondary,
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: { ...universalChartOptions,
+                scales: {
+                     y: { 
+                         beginAtZero: true, 
+                         max: 10,
+                         title: { display: true, text: 'Peringkat Relatif (1-10)', font: {size: 10} },
+                         ticks: { color: brilliantBlues.text }
+                     },
+                     x: { ticks: { color: brilliantBlues.text, font: { size: 11 } } }
+                },
+                plugins: {
+                     ...universalChartOptions.plugins,
+                     legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        const gspModelsCtx = document.getElementById('gspModelsChart').getContext('2d');
+        new Chart(gspModelsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Scanlon', 'Rucker', 'Improshare'],
+                datasets: [{
+                    label: 'Fokus Pengukuran',
+                    data: [7, 8, 9.5],
+                    backgroundColor: [brilliantBlues.primary, brilliantBlues.secondary, brilliantBlues.tertiary],
+                }]
+            },
+            options: { ...universalChartOptions,
+                 indexAxis: 'y',
+                 plugins: {
+                     ...universalChartOptions.plugins,
+                     legend: { display: false }
+                 },
+                 scales: {
+                     x: {
+                         beginAtZero: true, max: 10,
+                         title: { display: true, text: 'Kekuatan Hubungan Kinerja-Imbalan', font: {size: 10} },
+                         ticks: { color: brilliantBlues.text }
+                     },
+                     y: { ticks: { color: brilliantBlues.text, font: { size: 12 } } }
+                 }
+            }
+        });
+
+        // Bonus Allocation Chart
+        const bonusAllocationCtx = document.getElementById('bonusAllocationChart').getContext('2d');
+        let bonusChart = new Chart(bonusAllocationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Karyawan (60%)', 'Perusahaan (20%)', 'Cadangan (20%)'],
+                datasets: [{
+                    label: 'Alokasi Bonus',
+                    data: [0, 0, 0],
+                    backgroundColor: [brilliantBlues.secondary, brilliantBlues.primary, '#cccccc'],
+                    borderColor: brilliantBlues.accent,
+                    borderWidth: 3,
+                    hoverOffset: 4
+                }]
+            },
+             options: { ...universalChartOptions,
+                plugins: {
+                     ...universalChartOptions.plugins,
+                     legend: { position: 'bottom' },
+                     tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = 'Alokasi';
+                                if (context.parsed !== null) {
+                                    const valueInMiliar = context.parsed / 1000000000;
+                                    label = `${context.label}: Rp ${valueInMiliar.toFixed(2)} Miliar`;
+                                }
+                                return label;
+                            }
+                        }
+                     }
+                }
+             }
+        });
+
+        function updateBonusChart(gain) {
+            const employeeShare = gain * 0.6;
+            const companyShare = gain * 0.2;
+            const reserveShare = gain * 0.2;
+            bonusChart.data.datasets[0].data = [employeeShare, companyShare, reserveShare];
+            bonusChart.update();
+        }
+
+        // Simulation Logic
+        const simulateButton = document.getElementById('simulateButton');
+        const simulationResultDiv = document.getElementById('simulationResult');
+        simulateButton.addEventListener('click', async () => {
+            const totalSales = document.getElementById('totalSales').value;
+            const materialCost = document.getElementById('materialCost').value;
+            const laborCost = document.getElementById('laborCost').value;
+
+            if (!totalSales || !materialCost || !laborCost) {
+                simulationResultDiv.innerHTML = `<p class="text-red-500">Harap isi semua kolom untuk simulasi.</p>`;
+                return;
+            }
+
+            simulateButton.disabled = true;
+            simulateButton.innerHTML = `<div class="loader"></div><span class="ml-2">Menghitung...</span>`;
+            
+            const prompt = `Hitung potensi bonus Gain Sharing Productivity (GSP) menggunakan Rucker Plan dengan data berikut:
+            - Total Penjualan (SVOP): ${totalSales}
+            - Biaya Material & Jasa: ${materialCost}
+            - Biaya Tenaga Kerja Aktual: ${laborCost}
+            - Rasio Rucker historis (Baseline): 40%
+
+            Langkah perhitungan:
+            1. Hitung Nilai Tambah (Value Added) = SVOP - Biaya Material & Jasa.
+            2. Hitung Biaya Tenaga Kerja yang Diizinkan = 40% * Nilai Tambah.
+            3. Hitung Keuntungan (Gain/Bonus Pool) = Biaya Tenaga Kerja yang Diizinkan - Biaya Tenaga Kerja Aktual.
+
+            Berikan jawaban dalam format JSON berikut, tanpa markdown:
+            {"gain": [angka keuntungan], "analysis": "[analisis singkat dan positif tentang hasil perhitungan dalam 1-2 kalimat]"}`;
+
+            const responseText = await callGeminiAPI(prompt);
+            
+            try {
+                const result = JSON.parse(responseText);
+                const gain = result.gain > 0 ? result.gain : 0;
+                const gainInMiliar = (gain / 1000000000).toFixed(2);
+                
+                simulationResultDiv.innerHTML = `
+                    <div class="text-left">
+                        <p class="font-bold text-lg text-green-600">Potensi Bonus: Rp ${gainInMiliar} Miliar</p>
+                        <p class="text-sm text-gray-600 mt-1">${result.analysis}</p>
+                    </div>
+                `;
+                updateBonusChart(gain);
+
+            } catch (e) {
+                simulationResultDiv.innerHTML = `<p class="text-red-500">Gagal memproses hasil AI. Coba lagi.</p>`;
+                updateBonusChart(0);
+            }
+
+            simulateButton.disabled = false;
+            simulateButton.innerHTML = `<span class="mr-2">?</span> Simulasikan dengan AI`;
+        });
+
+        const indonesiaChallengesCtx = document.getElementById('indonesiaChallengesChart').getContext('2d');
+        new Chart(indonesiaChallengesCtx, {
+            type: 'radar',
+            data: {
+                labels: [['Dominasi', 'Regulasi UMP'], ['Budaya', 'Kolektif'], ['Kapasitas', 'Teknis UKM']],
+                datasets: [{
+                    label: 'Tingkat Tantangan',
+                    data: [9, 7, 8],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 122, 192, 0.2)',
+                    borderColor: brilliantBlues.secondary,
+                    pointBackgroundColor: brilliantBlues.secondary,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues.secondary
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e0e0e0' },
+                        grid: { color: '#e0e0e0' },
+                        pointLabels: {
+                             font: { size: 11 }, 
+                             color: brilliantBlues.text
+                        },
+                        ticks: {
+                            display: false,
+                            stepSize: 2
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            }
+        });
+
+        // Modal Logic
+        const aiModal = document.getElementById('aiModal');
+        const recommendationButton = document.getElementById('recommendationButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const modalContent = document.getElementById('modalContent');
+
+        recommendationButton.addEventListener('click', async () => {
+            aiModal.style.display = 'flex';
+            modalContent.innerHTML = `<div class="flex justify-center items-center h-48"><div class="loader"></div></div>`;
+            
+            const prompt = `Sebagai konsultan SDM, berikan rekomendasi strategis dalam format poin-poin untuk perusahaan manufaktur di Indonesia yang ingin mulai menerapkan sistem Gain Sharing Productivity (GSP). Fokus pada langkah-langkah praktis di Fase 1 (Bangun Fondasi). Gunakan bahasa Indonesia yang profesional dan mudah dimengerti. Format jawaban sebagai HTML dengan heading h4 dan unordered list (ul/li).`;
+            
+            const responseText = await callGeminiAPI(prompt);
+            modalContent.innerHTML = responseText;
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            aiModal.style.display = 'none';
+        });
+        aiModal.querySelector('.modal-backdrop').addEventListener('click', () => {
+            aiModal.style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>
