@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APO-PS 101:2023 - Certified Productivity Specialists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 9999px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .chart-donut-70 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#3b82f6 0% 70%, #dbeafe 70% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .chart-donut-70::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+        }
+        .chart-donut-70 .text-overlay {
+            z-index: 10;
+            text-align: center;
+        }
+        .pyramid-minor { background-color: #dbeafe; padding: 1.5rem; }
+        .pyramid-moderate { background-color: #93c5fd; padding: 1.5rem; }
+        .pyramid-major { background-color: #3b82f6; color: white; padding: 1.5rem; }
+    </style>
+</head>
+<body class="antialiased leading-relaxed">
+
+    <div class="container py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-800 leading-tight mb-2">APO-PS 101:2023 — Certified Productivity Specialists</h1>
+            <p class="text-md sm:text-lg text-gray-600 font-medium italic">A deep-dive infographic-style brief compiled from the APO standard - Developed by Leonard Tiopan Panjaitan, MT, CSRA, GPS @ 2025.</p>
+        </div>
+
+        <!-- Section 1: What the Scheme Is -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">What the Scheme Is</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Goal</h3>
+                    <p class="text-gray-700">Build region-wide pools of Certified Productivity Specialists (CPS) who can plan, execute, and sustain productivity improvement for clients.</p>
+                    <h3 class="font-bold text-lg mt-4 mb-2">Who runs it?</h3>
+                    <p class="text-gray-700">APO (scheme owner) via accredited Certification Bodies (CBs); NPOs and other entities may act as CBs.</p>
+                    <h3 class="font-bold text-lg mt-4 mb-2">Recognition</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Internationally-recognized credential</li>
+                        <li>Listing in CB public registers</li>
+                        <li>Use of certification logos</li>
+                        <li>Access to APO networks and assignments</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="bg-blue-100 p-6 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-xl text-blue-800 mb-2">Value Snapshot</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Stronger career & business prospects</li>
+                            <li>Standardized competency benchmark</li>
+                            <li>Proof of commitment to CPD</li>
+                            <li>Network & visibility across APO economies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Scope & Services -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Scope & Services</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <p class="text-gray-700"><span class="font-semibold">Certified persons deliver:</span> Consultancy, Training, Promotion, and Research to implement appropriate productivity solutions for client organizations.</p>
+                    <p class="text-gray-700"><span class="font-semibold">Key Outcomes:</span> Measurable productivity gains, strengthened internal capability, and sustained improvement.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-2xl">🤝</span><p class="font-semibold text-sm mt-1">Consultancy</p></div>
+                    <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-2xl">👨‍🏫</span><p class="font-semibold text-sm mt-1">Training</p></div>
+                    <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-2xl">📢</span><p class="font-semibold text-sm mt-1">Promotion</p></div>
+                    <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-2xl">🔬</span><p class="font-semibold text-sm mt-1">Research</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Levels of Certification -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Levels of Certification</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-indigo-50 p-6 rounded-xl border-t-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-2">Certified Productivity Specialist (CPS)</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li><span class="font-semibold">Academic:</span> Degree/diploma + ≥5 yrs experience or HS + ≥10 yrs.</li>
+                        <li><span class="font-semibold">Training:</span> Coverage of ≥8 productivity solutions.</li>
+                        <li><span class="font-semibold">Exam:</span> Pass written exam.</li>
+                        <li><span class="font-semibold">Experience:</span> ≥2 projects; ≥200 work hours in last 12 months.</li>
+                        <li><span class="font-semibold">Client Proof:</span> ≥2 positive client testimonials.</li>
+                    </ul>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border-t-4 border-teal-500">
+                    <h3 class="text-xl font-bold text-teal-800 mb-2">Certified Senior Productivity Specialist (CSPS)</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li><span class="font-semibold">Academic:</span> Degree/diploma + ≥8 yrs experience or HS + ≥16 yrs.</li>
+                        <li><span class="font-semibold">Training:</span> Coverage of ≥15 productivity solutions.</li>
+                        <li><span class="font-semibold">Experience:</span> ≥8 projects; ≥2,000 work hours overall.</li>
+                        <li><span class="font-semibold">Client Proof:</span> ≥3 positive client testimonials.</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 p-6 rounded-xl border-t-4 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-800 mb-2">Certified Master Productivity Specialist (CMPS)</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li><span class="font-semibold">Entry:</span> CSPS or equivalent.</li>
+                        <li><span class="font-semibold">Practice:</span> Active practice.</li>
+                        <li><span class="font-semibold">Experience:</span> ≥14 yrs as specialist; ≥4,000 work hours overall (≥1,000 leadership).</li>
+                        <li><span class="font-semibold">International:</span> ≥5 international assignments.</li>
+                        <li><span class="font-semibold">Client Proof:</span> ≥5 positive testimonials.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: Framework for Productivity Improvement -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Framework for Productivity Improvement</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-blue-100 p-6 rounded-xl border border-blue-200">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800">Phase 1: PLANNING</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 text-left">
+                        <li>Define Assignment</li>
+                        <li>Diagnose</li>
+                        <li>Recommend</li>
+                    </ul>
+                </div>
+                <div class="bg-green-100 p-6 rounded-xl border border-green-200">
+                    <h3 class="font-bold text-lg mb-2 text-green-800">Phase 2: EXECUTING</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 text-left">
+                        <li>Train</li>
+                        <li>Launch</li>
+                        <li>Implement</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-100 p-6 rounded-xl border border-purple-200">
+                    <h3 class="font-bold text-lg mb-2 text-purple-800">Phase 3: SUSTAINING</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 text-left">
+                        <li>Monitor</li>
+                        <li>Review</li>
+                        <li>Follow-up</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Domain Expertise -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Domain Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-100 p-6 rounded-xl border-t-4 border-blue-500">
+                    <h3 class="font-bold text-lg text-blue-800 mb-2">Diagnosis</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li>Data collection, FMEA, fishbone diagram, root cause analysis.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-100 p-6 rounded-xl border-t-4 border-green-500">
+                    <h3 class="font-bold text-lg text-green-800 mb-2">Basic Solutions</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li>5S, Quality Circles, Kaizen, suggestion scheme, TPM, SOP, waste reduction, OEE, QCC.</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-100 p-6 rounded-xl border-t-4 border-orange-500">
+                    <h3 class="font-bold text-lg text-orange-800 mb-2">Focused Solutions</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li>Business Excellence (BE), Business Process Re-engineering (BPR), Lean, Six Sigma, supply chain management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Process Skills -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Process Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200"><h3 class="font-bold text-lg mb-1">Consultancy</h3><p class="text-sm text-gray-600">Plan–Execute–Sustain across the framework.</p></div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200"><h3 class="font-bold text-lg mb-1">Training</h3><p class="text-sm text-gray-600">Design/customize courses; execute & evaluate.</p></div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200"><h3 class="font-bold text-lg mb-1">Research</h3><p class="text-sm text-gray-600">Clarify focus → scan info → plan/collect/analyze data.</p></div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200"><h3 class="font-bold text-lg mb-1">Promotion</h3><p class="text-sm text-gray-600">Identify target groups; create & disseminate content.</p></div>
+            </div>
+        </div>
+
+        <!-- Section 7: People Skills -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">People Skills</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li><span class="font-semibold">Client Relationship:</span> Establish trust; deliver good client experience.</li>
+                <li><span class="font-semibold">Stakeholder Management:</span> Engage effectively to achieve outcomes across the framework.</li>
+                <li><span class="font-semibold">Communication:</span> Apply effective techniques for clarity and influence.</li>
+                <li><span class="font-semibold">Team Management:</span> Build and lead high-performing teams.</li>
+            </ul>
+        </div>
+        
+        <!-- Section 8: Code of Professional Conduct -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Code of Professional Conduct</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">⚖️</span><p class="text-sm font-semibold mt-1">Legality</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">🛡️</span><p class="text-sm font-semibold mt-1">Integrity</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">🌱</span><p class="text-sm font-semibold mt-1">Sustainability</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">⚙️</span><p class="text-sm font-semibold mt-1">Efficiency</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">🧭</span><p class="text-sm font-semibold mt-1">Agility</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center"><span class="text-3xl">📄</span><p class="text-sm font-semibold mt-1">Confidentiality</p></div>
+            </div>
+            <p class="text-gray-700 text-sm mt-4 italic">And 9 other key principles related to professionalism, respect, objectivity, and continuous improvement.</p>
+        </div>
+
+        <!-- Section 9: Certification Process -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Certification Process</h2>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl border border-gray-200"><span class="text-xl font-bold text-blue-600">1.</span><p class="text-sm mt-1">CPS Prep Course</p></div>
+                <span class="text-2xl text-blue-500 hidden md:block">→</span>
+                <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl border border-gray-200"><span class="text-xl font-bold text-blue-600">2.</span><p class="text-sm mt-1">Written Exam</p></div>
+                <span class="text-2xl text-blue-500 hidden md:block">→</span>
+                <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl border border-gray-200"><span class="text-xl font-bold text-blue-600">3.</span><p class="text-sm mt-1">Application Submission</p></div>
+                <span class="text-2xl text-blue-500 hidden md:block">→</span>
+                <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl border border-gray-200"><span class="text-xl font-bold text-blue-600">4.</span><p class="text-sm mt-1">Panel Interview</p></div>
+                <span class="text-2xl text-blue-500 hidden md:block">→</span>
+                <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl border border-gray-200"><span class="text-xl font-bold text-blue-600">5.</span><p class="text-sm mt-1">Approval</p></div>
+            </div>
+        </div>
+
+        <!-- Section 10: Recertification -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Recertification</h2>
+            <p class="text-gray-700 mb-4">Certificates are valid for 3 years. Recertification requires:</p>
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                <li><span class="font-semibold">CPD:</span> ≥90 hours in the preceding 3 years.</li>
+                <li><span class="font-semibold">Testimonials:</span> ≥2 positive client testimonials (last 3 years).</li>
+                <li><span class="font-semibold">Compliance:</span> Code of conduct maintained throughout.</li>
+            </ul>
+        </div>
+        
+        <!-- Section 11: Written Examination Blueprint -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Written Examination Blueprint</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                    <div class="chart-donut-70">
+                        <div class="text-overlay">
+                            <p class="text-2xl font-bold text-blue-700">70%</p>
+                            <p class="text-sm text-gray-600">MCQs</p>
+                            <p class="text-2xl font-bold text-gray-600">30%</p>
+                            <p class="text-sm text-gray-600">Essays</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Coverage:</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                        <li>Diagnosis & Solution Areas</li>
+                        <li>People Skills (client, stakeholder, team management)</li>
+                        <li>Code of Professional Conduct</li>
+                        <li>Process skills (consultancy, training, research, promotion)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 12: Infringements & Disciplinary Actions -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Infringements & Disciplinary Actions</h2>
+            <div class="flex flex-col items-center">
+                <div class="w-full max-w-md pyramid-major rounded-t-xl text-center shadow-lg mb-2">
+                    <h3 class="font-bold text-xl">Major</h3>
+                    <p class="text-sm italic">Immediate withdrawal, delisting, barred from reapplying.</p>
+                </div>
+                <div class="w-full max-w-xl pyramid-moderate text-center shadow-lg mb-2">
+                    <h3 class="font-bold text-lg">Moderate</h3>
+                    <p class="text-sm italic">Counseling, possible suspension (≤12 months).</p>
+                </div>
+                <div class="w-full max-w-2xl pyramid-minor rounded-b-xl text-center shadow-lg">
+                    <h3 class="font-bold text-md text-blue-800">Minor</h3>
+                    <p class="text-sm italic text-blue-700">Written warning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 13: Key Definitions -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Key Definitions</h2>
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-2">
+                <li><span class="font-bold">Applicant:</span> Person who submits an application.</li>
+                <li><span class="font-bold">CB:</span> Certification Body.</li>
+                <li><span class="font-bold">Certified Person:</span> CPS, CSPS, or CMPS.</li>
+                <li><span class="font-bold">CPD:</span> Continuous Professional Development.</li>
+            </ul>
+        </div>
+        
+        <!-- Section 14: Logos & Usage -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Logos & Usage</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <p class="text-6xl mb-2">⚙️</p>
+                    <p class="font-bold">Elements</p>
+                    <p class="text-sm text-gray-600">Gear + Grain (productivity & growth) + Checkmark (verification) + digital dots.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <p class="text-6xl mb-2">🔄</p>
+                    <p class="font-bold">Outer Ring</p>
+                    <p class="text-sm text-gray-600">Represents Plan–Do–Check–Act cycle for continuous improvement.</p></div>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <p class="text-6xl mb-2">✒️</p>
+                    <p class="font-bold">Typography</p>
+                    <p class="text-sm text-gray-600">Evolves across Specialist → Senior → Master to reflect progression.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 17: Practical Tips -->
+        <div class="card p-6 mb-12">
+            <h2 class="section-title text-blue-700">Practical Tips</h2>
+            <h3 class="font-bold text-lg mb-2">Exam:</h3>
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 mb-4">
+                <li>Master diagnosis logic, Code of Conduct, and the 4 process skills.</li>
+                <li>Practice MCQs under time pressure; aim for ≥75/100.</li>
+                <li>For short essays, use a clear structure: Situation → Analysis → Solution → Impact.</li>
+            </ul>
+            <h3 class="font-bold text-lg mb-2">Portfolio & Interview:</h3>
+            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                <li>Curate 2–5 high-impact assignments with clear metrics (e.g., OEE, lead time, FPY, etc.).</li>
+                <li>Prepare client references and evidence (before/after visuals, SOPs).</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        
+        <!-- Back button to main page -->
+        <div class="text-center my-8">
+            <a href="https://leonardpanjaitan.github.io/index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow">
+                ← Back to the main page
+            </a>
+        </div>
+<div class="text-center text-gray-500 text-sm mt-8">
+            <p>&copy; 2023 Asian Productivity Organization. All rights reserved.</p>
+        </div>
+    </div>
+
+</body>
+</html>
